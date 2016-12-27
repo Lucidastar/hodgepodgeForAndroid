@@ -17,6 +17,10 @@
         </activity>
         <activity android:name=".ui.TestActivity">
         </activity>
+        <activity android:name=".ui.activity.statusbar.ChangeStatusBarActivity">
+        </activity>
+        <activity android:name=".ui.activity.statusbar.ToolBarToUse">
+        </activity>
     </application>
 
 </manifest>

@@ -2,10 +2,8 @@
     <string name="app_name">Hodgepodge</string>
 
     <!--menu-->
-    <string name="news">新闻</string>
-    <string name="zhihu">知乎</string>
-    <string name="photo">图片</string>
-    <string name="video">视频</string>
+    <string name="TestIntentService">测试IntentService</string>
+    <string name="TestStatusBar">测试Status</string>
     <string name="tools">设置</string>
     <string name="no_photo_mode">无图模式</string>
     <string name="night_mode">夜间模式</string>
@@ -13,4 +11,7 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

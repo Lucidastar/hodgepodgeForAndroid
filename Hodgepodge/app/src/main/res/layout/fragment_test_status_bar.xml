@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+              android:orientation="vertical"
+             tools:context="com.lucidastar.hodgepodge.ui.fragment.TestStatusBarFragment">
+
+
+    <Button
+        android:text="了解及使用Toobar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/studyToobar"/>
+
+    <Button
+
+        android:text="改变状态栏"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/changeBar"/>
+</LinearLayout>

@@ -1,6 +1,7 @@
 package com.lucidastar.hodgepodge;
 
 import com.lucidastar.hodgepodge.ui.base.BaseActivity;
+import com.socks.library.KLog;
 
 public class MainActivity extends BaseActivity {
 
@@ -17,6 +18,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initViews() {
-
+        mIsHasNavigationView = true;
+        KLog.i("this is mainActivtiy");
     }
 }
