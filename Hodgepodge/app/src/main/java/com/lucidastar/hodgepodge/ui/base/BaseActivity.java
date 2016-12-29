@@ -20,8 +20,10 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.lucidastar.hodgepodge.R;
+import com.lucidastar.hodgepodge.ui.fragment.TestDaggerFragment;
 import com.lucidastar.hodgepodge.ui.fragment.TestIntentServiceFragment;
 import com.lucidastar.hodgepodge.ui.fragment.TestStatusBarFragment;
+import com.lucidastar.hodgepodge.ui.fragment.WidgetListFragment;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.socks.library.KLog;
 
@@ -104,7 +106,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 //        toolbar = (Toolbar) findViewById(R.id.toolbar);
         NavigationView navView = (NavigationView) findViewById(R.id.nav_view);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+        final ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
@@ -121,6 +123,14 @@ public abstract class BaseActivity extends AppCompatActivity {
                         case R.id.nav_test_status:
                             controlShowFragment(2);
                             toolbar.setTitle(R.string.TestStatusBar);
+                            break;
+                        case R.id.nav_test_dagger:
+                            controlShowFragment(3);
+                            toolbar.setTitle(R.string.TestDagger);
+                            break;
+                        case R.id.nav_test_widget:
+                            controlShowFragment(4);
+                            toolbar.setTitle(R.string.TestWidget);
                             break;
 
                     }
@@ -179,6 +189,12 @@ public abstract class BaseActivity extends AppCompatActivity {
                 break;
             case 2:
                 fragment = new TestStatusBarFragment();
+                break;
+            case 3:
+                fragment = new TestDaggerFragment();
+                break;
+            case 4:
+                fragment = new WidgetListFragment();
                 break;
         }
         return fragment;

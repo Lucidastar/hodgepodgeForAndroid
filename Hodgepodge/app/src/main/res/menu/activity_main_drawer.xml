@@ -12,6 +12,15 @@
             android:id="@+id/nav_test_status"
             android:icon="@drawable/ic_assignment_news"
             android:title="@string/TestStatusBar"/>
+        <item
+            android:id="@+id/nav_test_dagger"
+            android:icon="@drawable/ic_assignment_news"
+            android:title="@string/TestDagger"/>
+
+        <item
+            android:id="@+id/nav_test_widget"
+            android:icon="@drawable/ic_assignment_news"
+            android:title="@string/TestWidget"/>
 
     </group>
 

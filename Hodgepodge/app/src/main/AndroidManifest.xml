@@ -21,6 +21,10 @@
         </activity>
         <activity android:name=".ui.activity.statusbar.ToolBarToUse">
         </activity>
+        <activity android:name=".ui.activity.statusbar.ToolBarSearchActivity">
+        </activity>
+        <activity android:name=".ui.activity.bottomsheet.BottomSheetActivity">
+        </activity>
     </application>
 
 </manifest>

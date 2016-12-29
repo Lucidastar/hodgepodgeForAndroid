@@ -3,31 +3,28 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
               android:orientation="vertical"
-             tools:context="com.lucidastar.hodgepodge.ui.fragment.TestStatusBarFragment">
+             tools:context="com.lucidastar.hodgepodge.ui.fragment.TestDaggerFragment">
 
 
-    <Button
-        android:text="了解及使用Toobar"
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/studyToobar"/>
-
+        android:padding="8dp"
+        android:background="#51e916"
+        android:text="了解dagger"
+        />
     <Button
-        android:text="查询toolbar"
+        android:id="@+id/btn_study"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/studySearch"/>
-
+        android:text="dagger基础及使用"
+        android:onClick="study"
+        />
     <Button
-        android:text="改变状态栏"
+        android:id="@+id/btn_practice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/changeBar"/>
-
-    <Button
-        android:text="查看资料"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_practice"/>
-    btn_practice
+        android:text="练习"
+        />
 </LinearLayout>

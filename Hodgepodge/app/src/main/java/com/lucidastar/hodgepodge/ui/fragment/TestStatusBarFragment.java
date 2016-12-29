@@ -2,16 +2,18 @@ package com.lucidastar.hodgepodge.ui.fragment;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Button;
 
 import com.lucidastar.hodgepodge.R;
 import com.lucidastar.hodgepodge.ui.activity.statusbar.ChangeStatusBarActivity;
+import com.lucidastar.hodgepodge.ui.activity.statusbar.ToolBarSearchActivity;
+import com.lucidastar.hodgepodge.ui.activity.statusbar.ToolBarToUse;
 import com.lucidastar.hodgepodge.ui.base.BaseFragment;
 import com.lucidastar.hodgepodge.utils.ToastUtils;
 import com.lucidastar.hodgepodge.utils.Utils;
-import com.lucidastar.testlib.TestMyLib;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -42,20 +44,27 @@ public class TestStatusBarFragment extends BaseFragment {
     }
 
 
-    @OnClick({R.id.studyToobar, R.id.changeBar})
+    @OnClick({R.id.studyToobar, R.id.changeBar,R.id.studySearch,R.id.btn_practice})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.studyToobar:
-                Utils.init(getActivity());
-
-                String test = TestMyLib.getTest();
-                mStudyToobar.setText(test);
-                ToastUtils.showShortToast(test);
+                startActivity(new Intent(getContext(), ToolBarToUse.class));
                 break;
             case R.id.changeBar:
                 Utils.init(getActivity());
                 ToastUtils.showShortToast("changeBar");
                 startActivity(new Intent(getContext(), ChangeStatusBarActivity.class));
+                break;
+
+            case R.id.studySearch:
+                startActivity(new Intent(getContext(), ToolBarSearchActivity.class));
+                break;
+
+            case R.id.btn_practice:
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("http://www.jianshu.com/p/e2ae6aaff696"));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
                 break;
         }
     }

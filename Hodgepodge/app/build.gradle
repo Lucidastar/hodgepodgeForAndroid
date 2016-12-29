@@ -19,6 +19,10 @@ android {
         }
     }
 
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+
 }
 
 dependencies {
@@ -27,6 +31,11 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     // Logger
+    compile project(':Library:testlib')
+    compile project(':Library:StatusBarUtil')
+
+
+
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:design:25.1.0'
     compile 'com.android.support:recyclerview-v7:25.1.0'
@@ -36,10 +45,10 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.4.0'
     compile 'com.github.zhaokaiqiang.klog:library:1.6.0'
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    compile 'com.github.chrisbanes:PhotoView:latest.release'
+    compile 'com.google.dagger:dagger:2.6'
+    compile 'org.glassfish.main:javax.annotation:4.0-b33'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
-    compile project(':Library:testlib')
-    compile project(':Library:StatusBarUtil')
-
-    compile 'com.github.chrisbanes:PhotoView:latest.release'
+    provided 'com.google.dagger:dagger-compiler:2.6'
 }
