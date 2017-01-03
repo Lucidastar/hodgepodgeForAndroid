@@ -25,6 +25,8 @@
         </activity>
         <activity android:name=".ui.activity.bottomsheet.BottomSheetActivity">
         </activity>
+        <activity android:name=".ui.activity.layout.AppBarLayoutActivity">
+        </activity>
     </application>
 
 </manifest>

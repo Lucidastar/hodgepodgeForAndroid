@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/tools"
+    android:id="@+id/activity_app_bar_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.lucidastar.hodgepodge.ui.activity.layout.AppBarLayoutActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="一袭风轻云淡，卷来天空的幽蓝。醉一场，梦一场，只把悲伤埋藏。千年等一回，等待春暖花开的结局，但那些如酒的陈年往事，早已镌刻在心底，任凭谁或轻或重搅动心湖的涟漪，任风霜雨雪侵袭美好的回忆，却怎么也撼动不了一丝一毫随流年封存得完好的忧伤与快乐。年华易逝，岁月朦胧，风中的格言，谁来实现；雨中的飘摇，谁来安定？
+
+一切往事烟雨中，抬头，望断天空的眼泪，任大雨小雨冲刷心的平湖，观流芳百世的唐风宋词，又有谁明明白白我的心？岁月的年轮，不停的转动，一场倾盆大雨，将美好的情感淋湿得奄奄一息。泪，打湿心的浮萍，花开了又谢，我以为，那些开在心头的花朵，从此以往，也不会再娇媚盛放。
+
+谁，听我将往事来倾诉；谁，将梦的告白来实现；谁，将天空的雾霾来吹散？没有谁，只有我一个人将飘渺往事来细数；只有我一个人将梦里的故事来回忆；只有我雾里看花，将风景看透。风中的云，该何去何从；风中的雾，该如何散开；风中的雨，该如何停止？问天问地，浩淼的苍穹是否能给我答案；苍茫大地是否能容纳我的心胸？
+
+烟雨中，天地间，四顾茫茫，心，随风去吧；泪，随雨飘吧；心事，随烟云散吧。自顾自，却思量，最难忘。北风呼啸，白雪皑皑，等到冬季来临，那一场又一场的风雪，将我心事埋藏。千里冰雪，望不尽；苍茫大地，走不完。我在冰天雪地里沉默，在风霜雨雪中沉沦；在漫天风雪中沉没。
+
+匆匆，看人世间风花雪月，看梦里梦外悲欢离合，看岁月中生死离别，看风雨中人来人往。岁月，是心中一朵带刺的花，用手采摘，会刺出血来。把身心抛向岁月，白色的皮肤会被扎得血肉模糊，完好的心会被刺得鲜血淋漓。( 文章阅读网：www.sanwen.net )
+
+奋不顾身，逝要将世事看穿到底，结果怎么也无法将结局看透；装作从容淡定，逝要将扑所迷离看清，结果怎么也无法逃出迷一样的俗世；泪流满面，逝要博得别人的同情，结果怎么也无法走出别人不解的眼光。
+
+人世间，有太多风雨，必须亲身经历；有太多悲苦，必须亲自饱尝；有太多是非，必须亲自解开。有太多恩怨，若想抚平，必须一笑泯恩仇；有太多仇恨，若想了结，必须心胸广阔；有太多思绪，若想忘记，必须有容乃大。
+
+青春，是一场痛苦的旅程。走过千山万水，越过海角天涯，翻山越岭，破釜沉舟。要经历夏的倾盆大雨，雷鸣闪电；要经历秋的多愁善感，落叶枯黄；要经历冬的狂风呼啸，严寒冰封。每个人的青春，或多或少都要经历这样那样的苦难，不经历风雨，怎能见彩虹？
+
+青春，是一种悲伤的体验。似水年华，人生飘摇。凄风苦雨，泪眼婆娑。看风，风是卷走自己青春的凶手；看雨，雨是淋湿自己人生的罪人；看雪，雪是埋藏自己快乐的帮凶。因为长大，所以悲伤；因为懵懂，所以不解；因为年青，所以不惧。因为悲伤，所以痛苦；因为不解，所以困惑；因为不惧，所以受伤。
+
+青春，是一场爱的旅程。爱自己，爱四季，爱他人，爱父母，爱朋友，爱一切美好的事物。爱是青春里永恒的主题曲。为爱疯狂，为爱痴迷，为爱愁恨，为爱迷失，为爱勇敢，为爱无惧，为爱沉醉，为爱感恩，为爱懂得，为爱慈悲，为爱牺牲。因为爱，生命中充满色彩；因为爱，心里鲜花盛开；因为爱，人生盈满芬芳。
+
+青春，是一种多愁善感的体验。春雨绵绵，细雨润心，花红柳绿，绿入心扉；夏荷幽幽，醉人心田，蜂飞蝶舞，意乱情迷；秋风萧瑟，悲从中来，秋花盛开，秋情缱绻；白雪纷飞，爱情绵绵，寒梅飘香，震撼人心。"
+            />
+
+    </android.support.design.widget.AppBarLayout>
+</RelativeLayout>

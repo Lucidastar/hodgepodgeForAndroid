@@ -20,4 +20,11 @@
         android:text="recycleView的学习及使用"
         android:id="@+id/btn_recycleView"
         />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="appBarLayout的学习及使用"
+        android:id="@+id/btn_appBarLayout"
+        />
 </LinearLayout>

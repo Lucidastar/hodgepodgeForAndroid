@@ -17,4 +17,11 @@
         android:onClick="change"
         />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="第二种方式改变statusbar"
+        android:onClick="secondChange"
+        />
+
 </LinearLayout>

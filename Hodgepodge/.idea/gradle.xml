@@ -10,8 +10,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Library" />
             <option value="$PROJECT_DIR$/Library/StatusBarUtil" />
-            <option value="$PROJECT_DIR$/Library/testlib" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/testdagger" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

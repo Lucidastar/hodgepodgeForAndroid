@@ -21,4 +21,11 @@
         android:text="https://github.com/soarcn/BottomSheet"
         android:id="@+id/btn_data"
         />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="显示BottomSheetDialog"
+        android:id="@+id/btn_showDialog"
+        />
 </LinearLayout>

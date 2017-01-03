@@ -1,1 +1,1 @@
-include ':app', ':Library:testlib' , ':Library:StatusBarUtil'
+include ':app', ':Library:StatusBarUtil', ':testdagger'

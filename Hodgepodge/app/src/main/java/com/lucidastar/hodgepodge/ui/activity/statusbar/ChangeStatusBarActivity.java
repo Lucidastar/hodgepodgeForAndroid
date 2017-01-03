@@ -12,6 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.android.util.statusbar.StatusBarCompat;
+import com.jaeger.library.StatusBarUtil;
 import com.lucidastar.hodgepodge.R;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
@@ -78,6 +79,12 @@ public class ChangeStatusBarActivity extends AppCompatActivity
         Random myRandom=new Random();
         int []ranColor ={0xff000000,0xFFFF4081,0xDE1BD255,0xDED96060,0xFFD99610,0x00ff0000}; //0xff000000 | random.nextInt(0x00ffffff);
         StatusBarCompat.setStatusBarColor(this, ranColor[myRandom.nextInt(6)]);
+    }
+
+    public void secondChange(View view){
+        Random myRandom=new Random();
+        int []ranColor ={0xff000000,0xFFFF4081,0xDE1BD255,0xDED96060,0xFFD99610,0x00ff0000};
+        StatusBarUtil.setColor(this,ranColor[myRandom.nextInt(6)]);
     }
 
 }
