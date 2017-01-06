@@ -20,6 +20,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.lucidastar.hodgepodge.R;
+import com.lucidastar.hodgepodge.ui.fragment.OtherFeatureFragment;
 import com.lucidastar.hodgepodge.ui.fragment.TestDaggerFragment;
 import com.lucidastar.hodgepodge.ui.fragment.TestIntentServiceFragment;
 import com.lucidastar.hodgepodge.ui.fragment.TestStatusBarFragment;
@@ -132,6 +133,10 @@ public abstract class BaseActivity extends AppCompatActivity {
                             controlShowFragment(4);
                             toolbar.setTitle(R.string.TestWidget);
                             break;
+                        case R.id.nav_test_other_feature:
+                            controlShowFragment(5);
+                            toolbar.setTitle(R.string.TestOtherFeature);
+                            break;
 
                     }
                     mDrawerLayout.closeDrawer(GravityCompat.START);
@@ -195,6 +200,9 @@ public abstract class BaseActivity extends AppCompatActivity {
                 break;
             case 4:
                 fragment = new WidgetListFragment();
+                break;
+            case 5:
+                fragment = new OtherFeatureFragment();
                 break;
         }
         return fragment;

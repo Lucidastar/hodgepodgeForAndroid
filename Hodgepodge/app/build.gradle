@@ -1,7 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
 
-
+//Properties prop = new Properties()
+//prop.load(new FileInputStream(file("../signing.properties")))
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
@@ -30,6 +31,13 @@ android {
             // 显示Log
 //            signingConfig signingConfigs.debug
         }
+
+//        release {
+//            storeFile file(prop['KEYSTORE_FILEPATH'])
+//            storePassword prop['STORE_PASSWORD']
+//            keyAlias prop['KEY_ALIAS']
+//            keyPassword prop['KEY_PASSWORD']
+//        }
     }
 
     buildTypes {
@@ -111,8 +119,8 @@ dependencies {
     compile 'com.github.chrisbanes:PhotoView:latest.release'
     compile 'com.google.dagger:dagger:2.6'
     compile 'org.glassfish.main:javax.annotation:4.0-b33'
-    testCompile 'junit:junit:4.12'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.jaeger.statusbaruitl:library:1.3.2'
     compile 'com.umeng.analytics:analytics:latest.integration'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 }

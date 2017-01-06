@@ -6,6 +6,7 @@
     <string name="TestStatusBar">测试Status</string>
     <string name="TestDagger">测试dagger</string>
     <string name="TestWidget">学习各个组件的使用</string>
+    <string name="TestOtherFeature">学习其他功能</string>
     <string name="tools">设置</string>
     <string name="no_photo_mode">无图模式</string>
     <string name="night_mode">夜间模式</string>

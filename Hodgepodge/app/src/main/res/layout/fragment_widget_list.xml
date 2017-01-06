@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:text="BottomSheet的学习及使用"
         android:id="@+id/btn_bottom_sheet"
+        android:textAllCaps="false"
         />
 
     <Button
@@ -19,6 +20,7 @@
         android:layout_height="wrap_content"
         android:text="recycleView的学习及使用"
         android:id="@+id/btn_recycleView"
+        android:textAllCaps="false"
         />
 
     <Button
@@ -26,5 +28,6 @@
         android:layout_height="wrap_content"
         android:text="appBarLayout的学习及使用"
         android:id="@+id/btn_appBarLayout"
+        android:textAllCaps="false"
         />
 </LinearLayout>
