@@ -123,4 +123,7 @@ dependencies {
     compile 'com.umeng.analytics:analytics:latest.integration'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    //图片加载
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }

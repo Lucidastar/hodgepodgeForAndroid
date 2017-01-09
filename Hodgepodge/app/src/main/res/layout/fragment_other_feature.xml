@@ -21,5 +21,12 @@
         android:textAllCaps="false"
         android:id="@+id/btn_study_other"
         />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="bitmap的学习"
+        android:textAllCaps="false"
+        android:id="@+id/btn_study_bitmap"
+        />
 
 </LinearLayout>

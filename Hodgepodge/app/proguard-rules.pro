@@ -49,6 +49,7 @@
 -keepattributes SourceFile,LineNumberTable
 
 
+-dontwarn com.squareup.okhttp.**
 
 -keep public class * extends android.app.Activity
 -keep public class * extends android.app.Application
