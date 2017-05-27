@@ -15,12 +15,30 @@ import java.util.Random;
 public class LocalService extends Service {
 
     private Random mRandom = new Random();
-
+    int a = 0;
     private LocalBinder mBinder = new LocalBinder();
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         return mBinder;
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        new Thread(){
+            @Override
+            public void run() {
+                while (true){
+                    try {
+                        Thread.sleep(2000);
+                        a++;
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }.start();
     }
 
     public class LocalBinder extends Binder {
@@ -31,6 +49,12 @@ public class LocalService extends Service {
     }
 
     public int getRandomNum(){
-        return mRandom.nextInt(20);
+
+        //每次都会创建一个线程
+
+//        return mRandom.nextInt(20);
+        return a;
     }
+
+
 }
