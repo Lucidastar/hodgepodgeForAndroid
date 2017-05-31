@@ -26,6 +26,15 @@
                 <action  android:name="mine.com.service.MY_SERVICE"/>
             </intent-filter>
         </service>
+
+        <service android:name=".BookManagerService"
+            android:enabled="true"
+            android:exported="true"
+            >
+            <intent-filter>
+                <action  android:name="mine.com.service.BOOK_MANAGER_SERVICE"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

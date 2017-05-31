@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         intent.setPackage("mine.com.testserver");
 //        bindService(createExplicitFromImplicitIntent(this,intent),mServiceConnection, Context.BIND_AUTO_CREATE);
         //第二种方法
+        startService(intent);
         bindService(intent,mServiceConnection, Context.BIND_AUTO_CREATE);
     }
 
@@ -66,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
         if (mServiceConnection != null) {
             unbindService(mServiceConnection);
         }
+    }
+
+    public void sendObj(View view){
+        startActivity(new Intent(this,SendObjActivity.class));
     }
 
     public void getSum(View view){
