@@ -45,7 +45,7 @@ return true;
 case TRANSACTION_getBookList:
 {
 data.enforceInterface(DESCRIPTOR);
-java.util.List<mine.com.testserver.Book> _result = this.getBookList();
+java.util.List<Book> _result = this.getBookList();
 reply.writeNoException();
 reply.writeTypedList(_result);
 return true;
@@ -53,9 +53,9 @@ return true;
 case TRANSACTION_addBook:
 {
 data.enforceInterface(DESCRIPTOR);
-mine.com.testserver.Book _arg0;
+Book _arg0;
 if ((0!=data.readInt())) {
-_arg0 = mine.com.testserver.Book.CREATOR.createFromParcel(data);
+_arg0 = Book.CREATOR.createFromParcel(data);
 }
 else {
 _arg0 = null;
@@ -82,6 +82,43 @@ this.unregisterListener(_arg0);
 reply.writeNoException();
 return true;
 }
+case TRANSACTION_addBookOut:
+{
+data.enforceInterface(DESCRIPTOR);
+Book _arg0;
+_arg0 = new Book();
+this.addBookOut(_arg0);
+reply.writeNoException();
+if ((_arg0!=null)) {
+reply.writeInt(1);
+_arg0.writeToParcel(reply, android.os.Parcelable.PARCELABLE_WRITE_RETURN_VALUE);
+}
+else {
+reply.writeInt(0);
+}
+return true;
+}
+case TRANSACTION_addBookInAndOut:
+{
+data.enforceInterface(DESCRIPTOR);
+Book _arg0;
+if ((0!=data.readInt())) {
+_arg0 = Book.CREATOR.createFromParcel(data);
+}
+else {
+_arg0 = null;
+}
+this.addBookInAndOut(_arg0);
+reply.writeNoException();
+if ((_arg0!=null)) {
+reply.writeInt(1);
+_arg0.writeToParcel(reply, android.os.Parcelable.PARCELABLE_WRITE_RETURN_VALUE);
+}
+else {
+reply.writeInt(0);
+}
+return true;
+}
 }
 return super.onTransact(code, data, reply, flags);
 }
@@ -106,16 +143,16 @@ return DESCRIPTOR;
      *///    void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat,
 //            double aDouble, String aString);
 
-@Override public java.util.List<mine.com.testserver.Book> getBookList() throws android.os.RemoteException
+@Override public java.util.List<Book> getBookList() throws android.os.RemoteException
 {
 android.os.Parcel _data = android.os.Parcel.obtain();
 android.os.Parcel _reply = android.os.Parcel.obtain();
-java.util.List<mine.com.testserver.Book> _result;
+java.util.List<Book> _result;
 try {
 _data.writeInterfaceToken(DESCRIPTOR);
 mRemote.transact(Stub.TRANSACTION_getBookList, _data, _reply, 0);
 _reply.readException();
-_result = _reply.createTypedArrayList(mine.com.testserver.Book.CREATOR);
+_result = _reply.createTypedArrayList(Book.CREATOR);
 }
 finally {
 _reply.recycle();
@@ -125,7 +162,7 @@ return _result;
 }
 // 返回书籍列表
 
-@Override public void addBook(mine.com.testserver.Book book) throws android.os.RemoteException
+@Override public void addBook(Book book) throws android.os.RemoteException
 {
 android.os.Parcel _data = android.os.Parcel.obtain();
 android.os.Parcel _reply = android.os.Parcel.obtain();
@@ -180,11 +217,56 @@ _reply.recycle();
 _data.recycle();
 }
 }
+// 注册接口
+
+@Override public void addBookOut(Book book) throws android.os.RemoteException
+{
+android.os.Parcel _data = android.os.Parcel.obtain();
+android.os.Parcel _reply = android.os.Parcel.obtain();
+try {
+_data.writeInterfaceToken(DESCRIPTOR);
+mRemote.transact(Stub.TRANSACTION_addBookOut, _data, _reply, 0);
+_reply.readException();
+if ((0!=_reply.readInt())) {
+book.readFromParcel(_reply);
+}
+}
+finally {
+_reply.recycle();
+_data.recycle();
+}
+}
+@Override public void addBookInAndOut(Book book) throws android.os.RemoteException
+{
+android.os.Parcel _data = android.os.Parcel.obtain();
+android.os.Parcel _reply = android.os.Parcel.obtain();
+try {
+_data.writeInterfaceToken(DESCRIPTOR);
+if ((book!=null)) {
+_data.writeInt(1);
+book.writeToParcel(_data, 0);
+}
+else {
+_data.writeInt(0);
+}
+mRemote.transact(Stub.TRANSACTION_addBookInAndOut, _data, _reply, 0);
+_reply.readException();
+if ((0!=_reply.readInt())) {
+book.readFromParcel(_reply);
+}
+}
+finally {
+_reply.recycle();
+_data.recycle();
+}
+}
 }
 static final int TRANSACTION_getBookList = (android.os.IBinder.FIRST_CALL_TRANSACTION + 0);
 static final int TRANSACTION_addBook = (android.os.IBinder.FIRST_CALL_TRANSACTION + 1);
 static final int TRANSACTION_registerListener = (android.os.IBinder.FIRST_CALL_TRANSACTION + 2);
 static final int TRANSACTION_unregisterListener = (android.os.IBinder.FIRST_CALL_TRANSACTION + 3);
+static final int TRANSACTION_addBookOut = (android.os.IBinder.FIRST_CALL_TRANSACTION + 4);
+static final int TRANSACTION_addBookInAndOut = (android.os.IBinder.FIRST_CALL_TRANSACTION + 5);
 }
 /**
      * Demonstrates some basic types that you can use as parameters
@@ -192,14 +274,18 @@ static final int TRANSACTION_unregisterListener = (android.os.IBinder.FIRST_CALL
      *///    void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat,
 //            double aDouble, String aString);
 
-public java.util.List<mine.com.testserver.Book> getBookList() throws android.os.RemoteException;
+public java.util.List<Book> getBookList() throws android.os.RemoteException;
 // 返回书籍列表
 
-public void addBook(mine.com.testserver.Book book) throws android.os.RemoteException;
+public void addBook(Book book) throws android.os.RemoteException;
 // 添加书籍
 
 public void registerListener(IOnNewBookArrivedListener listener) throws android.os.RemoteException;
 // 注册接口
 
 public void unregisterListener(IOnNewBookArrivedListener listener) throws android.os.RemoteException;
+// 注册接口
+
+public void addBookOut(Book book) throws android.os.RemoteException;
+public void addBookInAndOut(Book book) throws android.os.RemoteException;
 }

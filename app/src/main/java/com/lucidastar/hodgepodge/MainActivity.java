@@ -1,5 +1,7 @@
 package com.lucidastar.hodgepodge;
 
+import android.graphics.drawable.Drawable;
+
 import com.lucidastar.hodgepodge.ui.base.BaseActivity;
 import com.socks.library.KLog;
 

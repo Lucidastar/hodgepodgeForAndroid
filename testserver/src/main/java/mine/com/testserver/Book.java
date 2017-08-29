@@ -17,6 +17,19 @@ public class Book implements Parcelable {
         this.bookName = bookName;
     }
 
+    public static final Creator<Book> CREATOR = new Creator<Book>() {
+        @Override
+        public Book createFromParcel(Parcel in) {
+            return new Book(in);
+        }
+
+        @Override
+        public Book[] newArray(int size) {
+            return new Book[size];
+        }
+
+    };
+
     @Override public int describeContents() {
         return 0;
     }
@@ -26,20 +39,28 @@ public class Book implements Parcelable {
         dest.writeString(bookName);
     }
 
-    public static final Parcelable.Creator<Book> CREATOR = new Parcelable.Creator<Book>() {
-        @Override public Book createFromParcel(Parcel source) {
-            return new Book(source);
-        }
+    public void readFromParcel(Parcel dest){
+        bookId = dest.readInt();
+        bookName = dest.readString();
+    }
 
-        @Override public Book[] newArray(int size) {
-            return new Book[size];
-        }
-    };
+//    public static final Parcelable.Creator<Book> CREATOR = new Parcelable.Creator<Book>() {
+//        @Override public Book createFromParcel(Parcel source) {
+//            return new Book(source);
+//        }
+//
+//        @Override public Book[] newArray(int size) {
+//            return new Book[size];
+//        }
+//    };
 
     private Book(Parcel source) {
         bookId = source.readInt();
         bookName = source.readString();
     }
+
+    public Book(){}
+
 
     @Override public String toString() {
         return "ID: " + bookId + ", BookName: " + bookName;

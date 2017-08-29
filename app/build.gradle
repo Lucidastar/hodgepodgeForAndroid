@@ -24,7 +24,7 @@ android {
         release {
             keyAlias 'test'
             keyPassword '123456'
-            storeFile file('/Users/hanxiaoxing/asWork/hodgepodgeForAndroid/Hodgepodge/app/test.jks')
+            storeFile file('/Users/hanxiaoxing/asWork/0/Hodgepodge/app/test.jks')
             storePassword '123456'
         }
         debug {

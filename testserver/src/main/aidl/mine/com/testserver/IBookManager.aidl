@@ -17,4 +17,7 @@ interface IBookManager {
     void addBook(in Book book); // 添加书籍
     void registerListener(IOnNewBookArrivedListener listener); // 注册接口
     void unregisterListener(IOnNewBookArrivedListener listener); // 注册接口
+
+    void addBookOut(out Book book);
+    void addBookInAndOut(inout Book book);
 }

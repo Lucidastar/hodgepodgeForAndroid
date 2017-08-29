@@ -54,6 +54,16 @@ public class BookManagerService extends Service {
             mListenerList.finishBroadcast();
             Log.e(TAG, "删除完成, 注册接口数: " + num);
         }
+
+        @Override
+        public void addBookOut(Book book) throws RemoteException {
+
+        }
+
+        @Override
+        public void addBookInAndOut(Book book) throws RemoteException {
+
+        }
     };
 
     private void onNewBookArrived(Book book) throws RemoteException {

@@ -30,6 +30,17 @@ public class SendObjActivity extends AppCompatActivity {
     private TextView mTvBookList;
 
     private IBookManager mRemoteBookManager;
+    interface MyTest<T extends String>{
+
+    }
+
+    interface MyTestF<VH extends MyTest>{
+
+        void create(MyTest myTest);
+
+        VH createTest();
+    }
+
 
     private IOnNewBookArrivedListener mOnNewBookArrivedListener = new IOnNewBookArrivedListener.Stub() {
         @Override public void onNewBookArrived(Book newBook) throws RemoteException {
