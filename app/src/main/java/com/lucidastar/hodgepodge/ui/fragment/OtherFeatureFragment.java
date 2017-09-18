@@ -4,12 +4,14 @@ package com.lucidastar.hodgepodge.ui.fragment;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.view.View;
+import android.widget.Toast;
 
 import com.lucidastar.hodgepodge.R;
 import com.lucidastar.hodgepodge.ui.activity.otherfeature.TestBitmapActivity;
 import com.lucidastar.hodgepodge.ui.activity.otherfeature.handler.TestHandlerActivity;
 import com.lucidastar.hodgepodge.ui.activity.otherfeature.saidl.StudentAidlActivity;
 import com.lucidastar.hodgepodge.ui.base.BaseFragment;
+import com.lucidastar.hodgepodge.view.CustomDialogFragment;
 
 import butterknife.OnClick;
 
@@ -34,13 +36,14 @@ public class OtherFeatureFragment extends BaseFragment {
         return R.layout.fragment_other_feature;
     }
 
-    @OnClick({R.id.btn_study_handler, R.id.btn_study_other,R.id.btn_study_bitmap,R.id.btn_study_aidl})
+    @OnClick({R.id.btn_study_handler, R.id.btn_study_other,R.id.btn_study_bitmap,R.id.btn_study_aidl,R.id.btn_study_fragment_dialog})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_study_handler:
                 startActivity(new Intent(getActivity(), TestHandlerActivity.class));
                 break;
             case R.id.btn_study_other:
+
                 break;
             case R.id.btn_study_bitmap:
                 startActivity(new Intent(getActivity(), TestBitmapActivity.class));
@@ -48,6 +51,25 @@ public class OtherFeatureFragment extends BaseFragment {
 
             case R.id.btn_study_aidl:
                 startActivity(new Intent(getActivity(), StudentAidlActivity.class));
+                break;
+
+            case R.id.btn_study_fragment_dialog:
+                String content = "1、界面优化;2、加载数据的bug";
+                 CustomDialogFragment customDialogFragment = CustomDialogFragment.getInstance(content,false);
+//                customDialogFragment.setRetainInstance(true);
+                customDialogFragment.setDialogButtonClickListener(new CustomDialogFragment.OnDialogButtonClickListener() {
+                    @Override
+                    public void cancelButtonClick() {
+                        Toast.makeText(getActivity(),"取消",Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void confirmButtonClick() {
+                        Toast.makeText(getActivity(),"开始下载",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                customDialogFragment.show(getFragmentManager(),"customDialog");
                 break;
         }
     }
