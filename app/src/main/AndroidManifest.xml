@@ -25,12 +25,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.TestActivity"></activity>
-        <activity android:name=".ui.activity.statusbar.ChangeStatusBarActivity"></activity>
-        <activity android:name=".ui.activity.statusbar.ToolBarToUse"></activity>
-        <activity android:name=".ui.activity.statusbar.ToolBarSearchActivity"></activity>
-        <activity android:name=".ui.activity.bottomsheet.BottomSheetActivity"></activity>
-        <activity android:name=".ui.activity.layout.AppBarLayoutActivity"></activity>
+        <activity android:name=".ui.TestActivity" />
+        <activity android:name=".ui.activity.statusbar.ChangeStatusBarActivity" />
+        <activity android:name=".ui.activity.statusbar.ToolBarToUse" />
+        <activity android:name=".ui.activity.statusbar.ToolBarSearchActivity" />
+        <activity android:name=".ui.activity.bottomsheet.BottomSheetActivity" />
+        <activity android:name=".ui.activity.layout.AppBarLayoutActivity" />
 
         <meta-data
             android:name="UMENG_CHANNEL"
@@ -48,13 +48,14 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".ui.activity.otherfeature.saidl.LocalService"
-            />
+        <service android:name=".ui.activity.otherfeature.saidl.LocalService" />
 
-        <activity android:name=".ui.activity.otherfeature.TestSMSRecieverActivity"></activity>
-        <activity android:name=".ui.activity.otherfeature.handler.TestHandlerActivity"></activity>
-        <activity android:name=".ui.activity.otherfeature.TestBitmapActivity"></activity>
-        <activity android:name=".ui.activity.otherfeature.saidl.StudentAidlActivity"></activity>
+        <activity android:name=".ui.activity.otherfeature.TestSMSRecieverActivity" />
+        <activity android:name=".ui.activity.otherfeature.handler.TestHandlerActivity" />
+        <activity android:name=".ui.activity.otherfeature.TestBitmapActivity" />
+        <activity android:name=".ui.activity.otherfeature.saidl.StudentAidlActivity" />
+        <activity android:name=".ui.activity.custom.CustomActivity" />
+        <activity android:name=".ui.activity.custom.CustomCalendarActivity"></activity>
     </application>
 
 </manifest>

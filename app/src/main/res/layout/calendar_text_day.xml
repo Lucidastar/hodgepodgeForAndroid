@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lucidastar.hodgepodge.view.CalendarDayTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/txt_calendar_day"
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:gravity="center"
+    android:textSize="20dp">
+
+</com.lucidastar.hodgepodge.view.CalendarDayTextView>

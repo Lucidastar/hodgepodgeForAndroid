@@ -44,5 +44,12 @@
             android:layout_height="wrap_content"
             android:text="FragmentDialog"
             android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_study_custom_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="学习自定义控件"
+            android:textAllCaps="false" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.lucidastar.hodgepodge.R;
+import com.lucidastar.hodgepodge.ui.activity.custom.CustomActivity;
 import com.lucidastar.hodgepodge.ui.activity.otherfeature.TestBitmapActivity;
 import com.lucidastar.hodgepodge.ui.activity.otherfeature.handler.TestHandlerActivity;
 import com.lucidastar.hodgepodge.ui.activity.otherfeature.saidl.StudentAidlActivity;
@@ -36,7 +37,7 @@ public class OtherFeatureFragment extends BaseFragment {
         return R.layout.fragment_other_feature;
     }
 
-    @OnClick({R.id.btn_study_handler, R.id.btn_study_other,R.id.btn_study_bitmap,R.id.btn_study_aidl,R.id.btn_study_fragment_dialog})
+    @OnClick({R.id.btn_study_handler, R.id.btn_study_other,R.id.btn_study_bitmap,R.id.btn_study_aidl,R.id.btn_study_fragment_dialog,R.id.btn_study_custom_view})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_study_handler:
@@ -70,6 +71,9 @@ public class OtherFeatureFragment extends BaseFragment {
                     }
                 });
                 customDialogFragment.show(getFragmentManager(),"customDialog");
+                break;
+            case R.id.btn_study_custom_view:
+                startActivity(new Intent(getActivity(), CustomActivity.class));
                 break;
         }
     }
