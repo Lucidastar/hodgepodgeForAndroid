@@ -107,7 +107,6 @@ dependencies {
     })
     // Logger
     compile project(':Library:StatusBarUtil')
-
     //图片加载
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:design:25.1.0'
@@ -116,7 +115,6 @@ dependencies {
     compile 'com.android.support:support-v4:25.1.0'
     compile 'com.orhanobut:logger:1.4'
     compile 'com.jakewharton:butterknife:8.4.0'
-    compile 'com.github.zhaokaiqiang.klog:library:1.6.0'
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
     compile 'com.github.chrisbanes:PhotoView:latest.release'
     compile 'com.google.dagger:dagger:2.6'
@@ -127,4 +125,5 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile project(':lucidastarutils')
 }

@@ -8,7 +8,8 @@ import android.os.Process;
 import android.support.v7.app.AppCompatActivity;
 
 import com.lucidastar.hodgepodge.R;
-import com.socks.library.KLog;
+import com.mine.lucidastarutils.log.KLog;
+
 
 public class TestHandlerActivity extends AppCompatActivity {
 

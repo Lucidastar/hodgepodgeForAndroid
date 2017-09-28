@@ -26,7 +26,7 @@ import com.lucidastar.hodgepodge.ui.fragment.TestIntentServiceFragment;
 import com.lucidastar.hodgepodge.ui.fragment.TestStatusBarFragment;
 import com.lucidastar.hodgepodge.ui.fragment.WidgetListFragment;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
-import com.socks.library.KLog;
+
 
 import butterknife.ButterKnife;
 
@@ -54,7 +54,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        KLog.i(getClass().getSimpleName());
+//        KLog.i(getClass().getSimpleName());
         int layoutId = getLayoutId();
         setContentView(layoutId);
         initInjector();

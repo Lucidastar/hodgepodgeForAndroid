@@ -12,8 +12,7 @@ import com.lucidastar.hodgepodge.ui.activity.statusbar.ChangeStatusBarActivity;
 import com.lucidastar.hodgepodge.ui.activity.statusbar.ToolBarSearchActivity;
 import com.lucidastar.hodgepodge.ui.activity.statusbar.ToolBarToUse;
 import com.lucidastar.hodgepodge.ui.base.BaseFragment;
-import com.lucidastar.hodgepodge.utils.ToastUtils;
-import com.lucidastar.hodgepodge.utils.Utils;
+
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -51,8 +50,8 @@ public class TestStatusBarFragment extends BaseFragment {
                 startActivity(new Intent(getContext(), ToolBarToUse.class));
                 break;
             case R.id.changeBar:
-                Utils.init(getActivity());
-                ToastUtils.showShortToast("changeBar");
+//                Utils.init(getActivity());
+//                ToastUtils.showShortToast("changeBar");
                 startActivity(new Intent(getContext(), ChangeStatusBarActivity.class));
                 break;
 

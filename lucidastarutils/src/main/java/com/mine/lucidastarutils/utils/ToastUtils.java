@@ -1,4 +1,4 @@
-package com.lucidastar.hodgepodge.utils;
+package com.mine.lucidastarutils.utils;
 
 import android.os.Handler;
 import android.os.Looper;

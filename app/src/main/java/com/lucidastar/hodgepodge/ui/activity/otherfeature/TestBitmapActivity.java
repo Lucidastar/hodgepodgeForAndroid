@@ -14,7 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lucidastar.hodgepodge.R;
-import com.socks.library.KLog;
+import com.mine.lucidastarutils.log.KLog;
+
 
 import java.text.DecimalFormat;
 

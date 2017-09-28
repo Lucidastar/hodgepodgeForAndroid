@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/Library/StatusBarUtil/StatusBarUtil.iml" filepath="$PROJECT_DIR$/Library/StatusBarUtil/StatusBarUtil.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/hodgepodgeForAndroid.iml" filepath="$PROJECT_DIR$/hodgepodgeForAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucidastarutils/lucidastarutils.iml" filepath="$PROJECT_DIR$/lucidastarutils/lucidastarutils.iml" />
       <module fileurl="file://$PROJECT_DIR$/testclient/testclient.iml" filepath="$PROJECT_DIR$/testclient/testclient.iml" />
       <module fileurl="file://$PROJECT_DIR$/testdagger/testdagger.iml" filepath="$PROJECT_DIR$/testdagger/testdagger.iml" />
       <module fileurl="file://$PROJECT_DIR$/testserver/testserver.iml" filepath="$PROJECT_DIR$/testserver/testserver.iml" />
