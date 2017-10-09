@@ -22,4 +22,9 @@
     <color name="buttoncolor">#00838F</color>
     <color name="textColor">#ffffff</color>
     <color name="colorHint">#546E7A</color>
+
+
+    <color name="colorTextError">#00ff00</color>
+    <color name="colorHintError">#FF0000</color>
+    <color name="colorEditContent">#111111</color>
 </resources>

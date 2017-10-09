@@ -61,7 +61,8 @@
         <activity
             android:name=".ui.activity.layout.CollapsingToolbarActivity"
             android:label="@string/title_activity_collapsing_toolbar"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ui.activity.layout.TextInputLayoutActivity"></activity>
     </application>
 
 </manifest>

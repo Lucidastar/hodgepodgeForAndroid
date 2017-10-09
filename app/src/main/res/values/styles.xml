@@ -45,4 +45,34 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
+    <style name="TextInputLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/edit_top_margin</item>
+    </style>
+
+    <style name="EditTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/edit_content_size</item>
+        <item name="android:textColor">@color/colorEditContent</item>
+    </style>
+
+    <style name="HintAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/edit_hint_size</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="HintErrorAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/edit_hint_size</item>
+        <item name="android:textColor">@color/colorHintError</item>
+        <item name="textColorError">@color/colorHintError</item>
+    </style>
+
+    <style name="TextErrorAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/edit_hint_size</item>
+        <item name="android:textColor">@color/colorTextError</item>
+        <item name="textColorError">@color/colorTextError</item>
+    </style>
+
 </resources>

@@ -37,4 +37,11 @@
         android:id="@+id/btn_collapsingToolbar"
         android:textAllCaps="false"
         />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextInputLayout的学习及使用"
+        android:id="@+id/btn_textInputLayout"
+        android:textAllCaps="false"
+        />
 </LinearLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.lucidastar.hodgepodge.ui.activity.layout.TextInputLayoutActivity">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_phoneNum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        app:counterEnabled="true"
+        app:counterMaxLength="11"
+        app:hintTextAppearance="@style/HintAppearance"
+        app:errorTextAppearance="@style/TextErrorAppearance"
+        app:counterOverflowTextAppearance="@style/HintErrorAppearance"
+        >
+        <EditText
+            android:id="@+id/et_phoneNum"
+            android:hint="请输入您的手机号"
+            style="@style/EditTextStyle"
+            android:inputType="phone"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/TextInputLayoutStyle"
+        app:errorEnabled="true"
+        app:passwordToggleEnabled="true"
+        app:hintTextAppearance="@style/HintAppearance"
+        app:errorTextAppearance="@style/TextErrorAppearance"
+        >
+        <EditText
+            android:id="@+id/et_password"
+            android:hint="请输入密码"
+            style="@style/EditTextStyle"
+            android:inputType="textPassword" />
+    </android.support.design.widget.TextInputLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="login"
+        android:text="登录"
+        android:textAllCaps="false" />
+</LinearLayout>
