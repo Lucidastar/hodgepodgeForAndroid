@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_test_bitmap"
     android:layout_width="match_parent"
@@ -9,72 +8,87 @@
     tools:context="com.lucidastar.hodgepodge.ui.activity.otherfeature.TestBitmapActivity">
 
     <Button
+        android:id="@+id/btn_getBitmapSize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="获取图片的大小"
-        android:id="@+id/btn_getBitmapSize"
-        />
+        android:text="获取图片的大小" />
+
     <ImageView
+        android:id="@+id/iv_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/forself"
-        android:id="@+id/iv_test"
-        />
+        android:src="@drawable/forself" />
+
     <Button
+        android:id="@+id/btn_imageSize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="获取image上图片的大小"
-        android:id="@+id/btn_imageSize"
-        android:textAllCaps="false"
         android:allowUndo="false"
-        />
+        android:text="获取image上图片的大小"
+        android:textAllCaps="false" />
+
     <Button
+        android:id="@+id/btn_getScreenInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="获取设备信息"
-        android:textAllCaps="false"
-        android:id="@+id/btn_getScreenInfo"
-        />
+        android:textAllCaps="false" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="填写尺寸的大小"
-        />
+        android:text="填写尺寸的大小" />
+
     <EditText
+        android:id="@+id/imageWidth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="宽"
-        android:inputType="number"
-        android:id="@+id/imageWidth"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageHeight"
-        android:inputType="number"
-        android:hint="高"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="生成自定义的尺寸"
-        android:id="@+id/btn_getCustomImage"
-        />
-    <TextView
-        android:id="@+id/tv_size"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text=""
-        android:gravity="center"
-        />
+        android:inputType="number" />
 
-    <TextView
+    <EditText
+        android:id="@+id/imageHeight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="720p 1280*720 标清\n1080p 1920*1080 高清\n720P xhdpi\n1080P xxhdpi \n一张图片（BitMap）占用的内存=图片长度*图片宽度*单位像素占用的字节数
+        android:hint="高"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btn_getCustomImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="生成自定义的尺寸" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=""
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@color/colorAccent"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="720p 1280*720 标清\n1080p 1920*1080 高清\n720P xhdpi\n1080P xxhdpi \n一张图片（BitMap）占用的内存=图片长度*图片宽度*单位像素占用的字节数
 注：图片长度和图片宽度的单位是像素。
-图片（BitMap）占用的内存应该和屏幕密度(Density)无关"
-        />
+图片（BitMap）占用的内存应该和屏幕密度(Density)无关" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 </LinearLayout>
