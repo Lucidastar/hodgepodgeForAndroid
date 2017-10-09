@@ -8,6 +8,7 @@ import android.view.View;
 import com.lucidastar.hodgepodge.R;
 import com.lucidastar.hodgepodge.ui.activity.bottomsheet.BottomSheetActivity;
 import com.lucidastar.hodgepodge.ui.activity.layout.AppBarLayoutActivity;
+import com.lucidastar.hodgepodge.ui.activity.layout.CollapsingToolbarActivity;
 import com.lucidastar.hodgepodge.ui.base.BaseFragment;
 
 import butterknife.OnClick;
@@ -33,7 +34,7 @@ public class WidgetListFragment extends BaseFragment {
         return R.layout.fragment_widget_list;
     }
 
-    @OnClick({R.id.btn_bottom_sheet, R.id.btn_recycleView,R.id.btn_appBarLayout})
+    @OnClick({R.id.btn_bottom_sheet, R.id.btn_recycleView,R.id.btn_appBarLayout,R.id.btn_collapsingToolbar})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_bottom_sheet:
@@ -43,6 +44,9 @@ public class WidgetListFragment extends BaseFragment {
                 break;
             case R.id.btn_appBarLayout:
                 startActivity(new Intent(getActivity(), AppBarLayoutActivity.class));
+                break;
+            case R.id.btn_collapsingToolbar:
+                startActivity(new Intent(getActivity(), CollapsingToolbarActivity.class));
                 break;
         }
     }
