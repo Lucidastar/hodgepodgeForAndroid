@@ -2,12 +2,12 @@ package com.mine.lucidastarutils.utils;
 
 import android.util.Log;
 
+import com.mine.lucidastarutils.constant.RegexConstants;
 import com.mine.lucidastarutils.log.KLog;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 
 /**
  * Created by qiuyouzone on 2017/10/9.
@@ -18,19 +18,23 @@ public final class RegularUtils {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 
-    public static boolean isEmail(String email){
-        boolean flag = false;
-        try{
-//            String check = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
-//            String check = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
-            String check = "[\\\\w!#$%&'*+/=?^_`{|}~-]+(?:\\\\.[\\\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\\\w](?:[\\\\w-]*[\\\\w])?\\\\.)+[\\\\w](?:[\\\\w-]*[\\\\w])?";
-            Pattern regex = Pattern.compile(check);
-            Matcher matcher = regex.matcher(email);
-            flag = matcher.matches();
-        }catch(Exception e){
-            KLog.i("验证邮箱地址错误");
-            flag = false;
-        }
-        return flag;
+    /**
+     * 验证邮箱
+     * @param input  验证输入的文本
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean isEmail(final CharSequence input){
+        return isMatch(RegexConstants.REGEX_EMAIL, input);
+    }
+
+    /**
+     * 判断是否匹配正则
+     *
+     * @param regex 正则表达式
+     * @param input 要匹配的字符串
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean isMatch(final String regex, final CharSequence input) {
+        return input != null && input.length() > 0 && Pattern.matches(regex, input);
     }
 }
