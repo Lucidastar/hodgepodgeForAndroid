@@ -4,6 +4,10 @@ import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.mine.lucidastarutils.log.KLog;
+import com.mine.lucidastarutils.utils.FileUtils;
+import com.mine.lucidastarutils.utils.Utils;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -22,5 +26,15 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getTargetContext();
 
         assertEquals("com.lucidastar.hodgepodge", appContext.getPackageName());
+    }
+
+    @Test
+    public void  getByteFormat() throws Exception {
+        // Context of the app under test.
+        Context appContext = InstrumentationRegistry.getTargetContext();
+        Utils.init(appContext);
+        String bytesFormat = FileUtils.getBytesFormat(28374629);
+        KLog.i(bytesFormat);
+        assertEquals("27.06MB", bytesFormat);
     }
 }
