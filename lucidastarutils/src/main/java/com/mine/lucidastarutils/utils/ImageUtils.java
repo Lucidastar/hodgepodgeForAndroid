@@ -338,6 +338,16 @@ public final class ImageUtils {
     }
 
     /**
+     * 获取占用内存大小
+     * @param bitmap
+     * @return
+     */
+    public static int getByteCount(Bitmap bitmap) {
+        // int result permits bitmaps up to 46,340 x 46,340
+        return bitmap.getRowBytes() * bitmap.getHeight();
+    }
+
+    /**
      * 缩放图片
      *
      * @param src       源图片

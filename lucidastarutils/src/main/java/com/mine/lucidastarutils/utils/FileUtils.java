@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -209,9 +210,6 @@ public final class FileUtils {
             return false;
         }
     }
-
-
-
 
 
     /**
@@ -855,6 +853,33 @@ public final class FileUtils {
         return filePath.substring(lastPoi + 1);
     }
 
+    /**
+     * 字节转换成实际大小
+     * @param size
+     * @return
+     */
+    public static String getBytesFormat(long size) {
+        if (size < 0) {
+            size = 0;
+        }
+        DecimalFormat format = new DecimalFormat("####.00");
+        if (size < 1024) {
+            return size + "bytes";
+        } else if (size < 1024 * 1024) {
+            float kbSize = size / 1024f;
+            return format.format(kbSize) + "KB";
+        } else if (size < 1024 * 1024 * 1024) {
+            float mbSize = size / 1024f / 1024f;
+            return format.format(mbSize) + "MB";
+        } else if (size < 1024 * 1024 * 1024 * 1024) {
+            float gbSize = size / 1024f / 1024f / 1024f;
+            return format.format(gbSize) + "GB";
+        } else {
+            return "size: error";
+        }
+
+    }
+
     ///////////////////////////////////////////////////////////////////////////
     // copy from ConvertUtils
     ///////////////////////////////////////////////////////////////////////////
@@ -916,4 +941,6 @@ public final class FileUtils {
     public interface OnReplaceListener {
         boolean onReplace();
     }
+
+
 }

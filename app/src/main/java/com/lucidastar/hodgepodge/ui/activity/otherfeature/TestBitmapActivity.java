@@ -15,8 +15,11 @@ import android.widget.TextView;
 
 import com.lucidastar.hodgepodge.R;
 import com.mine.lucidastarutils.log.KLog;
+import com.mine.lucidastarutils.utils.FileUtils;
+import com.mine.lucidastarutils.utils.ImageUtils;
 
 
+import java.io.UnsupportedEncodingException;
 import java.text.DecimalFormat;
 
 import butterknife.BindView;
@@ -58,7 +61,9 @@ public class TestBitmapActivity extends AppCompatActivity {
             case R.id.btn_getBitmapSize:
                 Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.forself);
                 int byteCount = getByteCount(bitmap);
+//                byte[] bytes = ImageUtils.bitmap2Bytes(bitmap, Bitmap.CompressFormat.PNG);
                 KLog.i("图片占用内存的大小:" + byteCount);
+
                 mTvSize.setText("图片占用内存的大小：" + getDataSize(byteCount) + "," + imageWidthAndHeight(R.drawable.forself));
                 break;
 
@@ -90,18 +95,18 @@ public class TestBitmapActivity extends AppCompatActivity {
         if (size < 0) {
             size = 0;
         }
-        DecimalFormat formater = new DecimalFormat("####.00");
+        DecimalFormat format = new DecimalFormat("####.00");
         if (size < 1024) {
             return size + "bytes";
         } else if (size < 1024 * 1024) {
-            float kbsize = size / 1024f;
-            return formater.format(kbsize) + "KB";
+            float kbSize = size / 1024f;
+            return format.format(kbSize) + "KB";
         } else if (size < 1024 * 1024 * 1024) {
-            float mbsize = size / 1024f / 1024f;
-            return formater.format(mbsize) + "MB";
+            float mbSize = size / 1024f / 1024f;
+            return format.format(mbSize) + "MB";
         } else if (size < 1024 * 1024 * 1024 * 1024) {
-            float gbsize = size / 1024f / 1024f / 1024f;
-            return formater.format(gbsize) + "GB";
+            float gbSize = size / 1024f / 1024f / 1024f;
+            return format.format(gbSize) + "GB";
         } else {
             return "size: error";
         }
