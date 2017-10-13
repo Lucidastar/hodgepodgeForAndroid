@@ -62,7 +62,9 @@
             android:name=".ui.activity.layout.CollapsingToolbarActivity"
             android:label="@string/title_activity_collapsing_toolbar"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ui.activity.layout.TextInputLayoutActivity"></activity>
+        <activity android:name=".ui.activity.layout.TextInputLayoutActivity" />
+        <activity android:name=".ui.activity.otherfeature.animation.AnimationActivity" />
+        <activity android:name=".ui.activity.otherfeature.animation.PropertyAnimActivity"></activity>
     </application>
 
 </manifest>
