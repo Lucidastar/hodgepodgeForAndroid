@@ -65,6 +65,17 @@
         <activity android:name=".ui.activity.layout.TextInputLayoutActivity" />
         <activity android:name=".ui.activity.otherfeature.animation.AnimationActivity" />
         <activity android:name=".ui.activity.otherfeature.animation.PropertyAnimActivity"></activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.lucidastar.hodgepodge.installapk"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <!--元数据-->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path" />
+        </provider>
     </application>
 
 </manifest>
