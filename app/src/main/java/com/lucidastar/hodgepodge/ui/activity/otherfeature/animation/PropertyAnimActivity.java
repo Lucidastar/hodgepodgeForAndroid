@@ -60,12 +60,25 @@ public class PropertyAnimActivity extends AppCompatActivity {
     }
 
     public void openButton1(View view) {
-        ValueAnimator valueAnimator = ValueAnimator.ofFloat(0f, 1f);
+        int[] location = new int[2];
+        tvProperty.getLocationOnScreen(location);
+//        tvProperty.getLocationInWindow(location);
+        int x = location[0];
+        int y = location[1];
+        KLog.d("x、y的值：" + x+","+y);
+        float translationX = tvProperty.getTranslationX();
+        KLog.d("translationX的值：" + translationX);
+        KLog.d("left、top的值：" +tvProperty.getLeft()+","+tvProperty.getTop());
+//        ValueAnimator valueAnimator = ValueAnimator.ofFloat(0f, 1f);
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 10);
         valueAnimator.setDuration(3000);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                KLog.d("值的变化：" + animation.getAnimatedValue());
+//                KLog.d("值的变化：" + animation.getAnimatedValue());
+                int animatedValue = (int)animation.getAnimatedValue();
+//                tvProperty.layout(tvProperty.getLeft(),tvProperty.getTop()-animatedValue,tvProperty.getWidth(),tvProperty.getHeight());
+//                KLog.d("left、top的值：" +tvProperty.getLeft()+","+tvProperty.getTop());
             }
         });
         valueAnimator.start();

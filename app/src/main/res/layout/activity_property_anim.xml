@@ -30,6 +30,6 @@
         android:text="这是属性动画的演示"
         android:gravity="center"
         android:layout_gravity="center_vertical"
-        android:layout_marginTop="200dp"
+
         />
 </LinearLayout>
