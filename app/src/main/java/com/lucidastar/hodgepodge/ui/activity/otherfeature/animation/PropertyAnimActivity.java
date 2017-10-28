@@ -9,11 +9,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.TextView;
 
 import com.lucidastar.hodgepodge.R;
 import com.mine.lucidastarutils.log.KLog;
-
+import com.mine.lucidastarutils.utils.*;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -51,6 +52,7 @@ public class PropertyAnimActivity extends AppCompatActivity {
         toolbar.setOnMenuItemClickListener(onMenuItemClick);
         toolbar.setOverflowIcon(getResources().getDrawable(R.drawable.ic_menu_more_overflow));
 
+
     }
 
     @Override
@@ -62,26 +64,40 @@ public class PropertyAnimActivity extends AppCompatActivity {
     public void openButton1(View view) {
         int[] location = new int[2];
         tvProperty.getLocationOnScreen(location);
-//        tvProperty.getLocationInWindow(location);
         int x = location[0];
         int y = location[1];
         KLog.d("x、y的值：" + x+","+y);
+
+        tvProperty.getLocationInWindow(location);
+        int x1 = location[0];
+        int y1 = location[1];
+        KLog.d("x1、y1的值：" + x1+","+y1);
+
+
         float translationX = tvProperty.getTranslationX();
         KLog.d("translationX的值：" + translationX);
         KLog.d("left、top的值：" +tvProperty.getLeft()+","+tvProperty.getTop());
+        int statusHeight = ScreenUtils.getStatusHeight(this);
+        KLog.d("statusHeight的值：" + statusHeight);
+
 //        ValueAnimator valueAnimator = ValueAnimator.ofFloat(0f, 1f);
-        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 10);
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 300);
         valueAnimator.setDuration(3000);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-//                KLog.d("值的变化：" + animation.getAnimatedValue());
+                KLog.d("值的变化：" + animation.getAnimatedValue());
                 int animatedValue = (int)animation.getAnimatedValue();
-//                tvProperty.layout(tvProperty.getLeft(),tvProperty.getTop()-animatedValue,tvProperty.getWidth(),tvProperty.getHeight());
+                tvProperty.layout(tvProperty.getLeft(),animatedValue,animatedValue+tvProperty.getWidth(),animatedValue+tvProperty.getHeight());
 //                KLog.d("left、top的值：" +tvProperty.getLeft()+","+tvProperty.getTop());
+//                KLog.d("width、height的值：" +tvProperty.getWidth()+","+tvProperty.getHeight());
             }
         });
         valueAnimator.start();
+
+//        ValueAnimator.ofObject()
+
+
     }
 
     private Toolbar.OnMenuItemClickListener onMenuItemClick = new Toolbar.OnMenuItemClickListener() {

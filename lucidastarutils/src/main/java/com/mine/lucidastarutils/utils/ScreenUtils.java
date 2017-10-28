@@ -1,4 +1,4 @@
-package com.mine.utils;
+package com.mine.lucidastarutils.utils;
 
 import android.app.Activity;
 import android.content.Context;
