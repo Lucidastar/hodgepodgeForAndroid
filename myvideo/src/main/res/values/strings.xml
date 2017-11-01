@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyVideo</string>
+    <string name="log_player_create_success">创建成功</string>
+    <string name="log_open_url_success">打开成功</string>
+    <string name="log_request_stream_success">请求流成功</string>
+    <string name="log_start_open_stream">打开流成功</string>
+    <string name="log_first_frame_played">第一帧播放完成</string>
+</resources>

@@ -1,1 +1,1 @@
-include ':app', ':Library:StatusBarUtil', ':testdagger', ':testserver', ':testclient', ':lucidastarutils'
+include ':app', ':Library:StatusBarUtil', ':testdagger', ':testserver', ':testclient', ':lucidastarutils', ':myvideo'
