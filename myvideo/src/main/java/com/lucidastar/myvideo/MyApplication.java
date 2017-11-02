@@ -3,6 +3,7 @@ package com.lucidastar.myvideo;
 import android.app.Application;
 
 import com.alivc.player.AliVcMediaPlayer;
+import com.mine.lucidastarutils.utils.Utils;
 
 import java.io.File;
 
@@ -23,5 +24,6 @@ public class MyApplication extends Application {
 
         final String businessId = "";
         AliVcMediaPlayer.init(getApplicationContext(), businessId);
+        Utils.init(this);
     }
 }

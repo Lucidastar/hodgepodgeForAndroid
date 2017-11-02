@@ -2,6 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/rl_contain"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
     <!--底图-->
     <ImageView
         android:id="@+id/image"
@@ -28,7 +32,7 @@
         <ProgressBar
             android:layout_width="27dp"
             android:layout_height="10dp"
-            style="?android:attr/progressBarStyleSmallTitle"
+            style="?android:attr/progressBarStyleLarge"
             />
 
         <TextView
@@ -67,7 +71,6 @@
             android:layout_height="2dp"
             android:layout_marginBottom="4dp"
             android:layout_marginTop="8dp"
-            android:max="100"
             android:progressDrawable="@drawable/pb_change"/>
     </LinearLayout>
     <!--改变亮度-->
@@ -214,7 +217,7 @@
             android:layout_weight="1"
             android:ellipsize="end"
             android:maxLines="2"
-            android:text=""
+            android:text="测试视频"
             android:textColor="@android:color/white"
             android:textSize="14sp"/>
 
@@ -334,5 +337,5 @@
         android:layout_centerInParent="true"
         android:src="@drawable/ic_player_center_start"
         android:visibility="visible"/>
-
+    </RelativeLayout>
 </RelativeLayout>

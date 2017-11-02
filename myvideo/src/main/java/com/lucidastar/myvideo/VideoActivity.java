@@ -3,6 +3,7 @@ package com.lucidastar.myvideo;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Build;
@@ -16,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -25,12 +27,14 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.alivc.player.AliVcMediaPlayer;
 import com.alivc.player.MediaPlayer;
 import com.lucidastar.myvideo.utils.Formatter;
+import com.mine.lucidastarutils.log.KLog;
 import com.mine.lucidastarutils.utils.ScreenUtils;
 import com.mine.lucidastarutils.utils.ToastUtils;
 
@@ -98,6 +102,9 @@ public class VideoActivity extends AppCompatActivity {
     private List<String> logStrs = new ArrayList<>();
     private SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss.SS");
     private boolean inSeek = false;
+    private float speed = 1.0f;
+    private RelativeLayout mRlContain;
+    private boolean isCompleted = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,7 +122,7 @@ public class VideoActivity extends AppCompatActivity {
         mIvFullScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+            setChangeScreen();
             }
         });
 
@@ -123,18 +130,27 @@ public class VideoActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (fromUser && mPlayer != null) {
-                    mPlayer.setVolume(progress);
+                    mPlayer.seekTo(progress);
+                    if (isCompleted) {
+                        inSeek = false;
+                    } else {
+                        mLoading.setVisibility(View.VISIBLE);
+                        inSeek = true;
+                        mTextPlayCurrentPosition.setText(Formatter.formatTime(progress));
+                        mTextCurrentPosition.setText(Formatter.formatTime(progress));
+                        mPbChangePosition.setProgress(progress);
+                    }
                 }
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
+                mllChangePosition.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                mllChangePosition.setVisibility(View.GONE);
             }
         });
         mIvCenterPlay.setOnClickListener(new View.OnClickListener() {
@@ -142,7 +158,33 @@ public class VideoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 inSeek = false;
                 start();
+                mPlayer.setPlaySpeed(speed);
+//                mSeekBar.setProgress(mPlayer.getScreenBrightness());//屏幕亮度
+//                mSeekBar.setProgress(mPlayer.getVolume());
                 showVideoProgressInfo();
+                mIvCenterPlay.setVisibility(View.GONE);
+            }
+        });
+
+        mIvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        mIvPlayOrPause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mPlayer.isPlaying()){
+                    pause();
+                    mLoading.setVisibility(View.GONE);
+                    mIvCenterPlay.setVisibility(View.VISIBLE);
+                }else {
+                    start();
+                    mLoading.setVisibility(View.VISIBLE);
+                    mIvCenterPlay.setVisibility(View.GONE);
+                }
             }
         });
     }
@@ -158,7 +200,8 @@ public class VideoActivity extends AppCompatActivity {
         mLLPlayComplete = (LinearLayout) findViewById(R.id.ll_completed);
         mLLPlayError = (LinearLayout) findViewById(R.id.ll_error);
         mLLTop = (LinearLayout) findViewById(R.id.ll_top);
-
+        mLoading = (LinearLayout) findViewById(R.id.ll_loading);
+        mPbChangePosition = (ProgressBar) findViewById(R.id.pb_change_position_progress);
         mTextCurrentPosition = (TextView) findViewById(R.id.tv_change_position_current);
         mTextLoading = (TextView) findViewById(R.id.tv_load);
         mTextPlayCurrentPosition = (TextView) findViewById(R.id.tv_position);
@@ -169,6 +212,7 @@ public class VideoActivity extends AppCompatActivity {
 
         mTextVideoLengthFront = (TextView) findViewById(R.id.tv_duration);
         mSeekBar = (SeekBar) findViewById(R.id.sb_seek);
+        mRlContain = (RelativeLayout) findViewById(R.id.rl_contain);
     }
 
     private void checkPlayPermission() {
@@ -281,6 +325,8 @@ public class VideoActivity extends AppCompatActivity {
             mTextVideoLengthFront.setText(Formatter.formatTime(duration));
             mSeekBar.setMax(duration);
             mSeekBar.setProgress(curPosition);
+            mPbChangePosition.setMax(duration);
+            mPbChangePosition.setProgress(curPosition);
         }
         startUpdateTimer();
     }
@@ -301,6 +347,14 @@ public class VideoActivity extends AppCompatActivity {
         }
     };
 
+    private void setChangeScreen(){
+        if(getRequestedOrientation()!= ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE && !isFullScreen){//设置横屏
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
+    }
+
     //开始播放
     private void start() {
         if (mPlayer != null) {
@@ -311,7 +365,6 @@ public class VideoActivity extends AppCompatActivity {
 
         }
     }
-
     private void pause() {
         if (mPlayer != null) {
             mPlayer.pause();
@@ -379,6 +432,19 @@ public class VideoActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK){
+            if (isFullScreen){
+                setChangeScreen();
+            }else {
+                finish();
+            }
+        }
+        return true;
+    }
+
     private class MyFrameInfoListener implements  MediaPlayer.MediaPlayerFrameInfoListener {
 
         private WeakReference<VideoActivity> vodModeActivityWeakReference;
@@ -421,6 +487,11 @@ public class VideoActivity extends AppCompatActivity {
         logStrs.add(format.format(new Date()) + getString(R.string.log_first_frame_played));
     }
 
+    private void updateBufferingProgress(int percent) {
+        int duration = (int) mPlayer.getDuration();
+        int secondaryProgress = (int) (duration * percent * 1.0f / 100);
+        mSeekBar.setSecondaryProgress(secondaryProgress);
+    }
 
     /**
      * 准备完成监听器:调度更新进度
@@ -445,14 +516,17 @@ public class VideoActivity extends AppCompatActivity {
             if (mPlayer == null) {
                 return;
             }
+            KLog.i(s);
+//            mPlayer.stop();
             errCode = mPlayer.getErrorCode();
             switch (errCode) {
                 case MediaPlayer.ALIVC_ERR_LOADING_TIMEOUT:
-                    Log.i("mine", "onError:ALIVC_ERR_LOADING_TIMEOUT");
-                    mPlayer.reset();
+                    KLog.i("视频加载超时");
+//                    mPlayer.reset();
                     break;
                 case MediaPlayer.ALIVC_ERR_READD:
-                    mPlayer.reset();
+//                    mPlayer.reset();
+                    mLLPlayError.setVisibility(View.VISIBLE);
                     break;
                 default:
                     break;
@@ -470,14 +544,18 @@ public class VideoActivity extends AppCompatActivity {
             switch (what) {
                 case MediaPlayer.MEDIA_INFO_UNKNOW:
                     break;
-                case MediaPlayer.MEDIA_INFO_BUFFERING_START:
+                case MediaPlayer.MEDIA_INFO_BUFFERING_START://
+                    KLog.i("缓存开始");
+                    mLoading.setVisibility(View.VISIBLE);
                     break;
                 case MediaPlayer.MEDIA_INFO_BUFFERING_END:
-
+                    KLog.i("缓存结束");
+                    mLoading.setVisibility(View.GONE);
                     break;
                 case MediaPlayer.MEDIA_INFO_TRACKING_LAGGING:
                     break;
                 case MediaPlayer.MEDIA_INFO_NETWORK_ERROR:
+                    KLog.i("网络错误");
                     break;
                 case MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START:
                     if (mPlayer != null)
@@ -495,6 +573,8 @@ public class VideoActivity extends AppCompatActivity {
 
         public void onSeekCompleted() {
             inSeek = false;
+            KLog.i("快进监听完成");
+            mLoading.setVisibility(View.GONE);
         }
     }
 
@@ -504,7 +584,9 @@ public class VideoActivity extends AppCompatActivity {
     private class VideoCompleteListener implements MediaPlayer.MediaPlayerCompletedListener {
 
         public void onCompleted() {
-
+            inSeek = false;
+            isCompleted = true;
+            stopUpdateTimer();
         }
     }
 
@@ -524,10 +606,11 @@ public class VideoActivity extends AppCompatActivity {
     private class VideoBufferUpdateListener implements MediaPlayer.MediaPlayerBufferingUpdateListener {
 
         public void onBufferingUpdateListener(int percent) {
-
+            updateBufferingProgress(percent);
         }
     }
 
+    //视频停止
     private class VideoStoppedListener implements MediaPlayer.MediaPlayerStopedListener {
         @Override
         public void onStopped() {
@@ -543,22 +626,25 @@ public class VideoActivity extends AppCompatActivity {
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {                //转为竖屏了。
             //显示状态栏
             this.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            mSurfaceView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+            mRlContain.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
             //设置view的布局，宽高之类
-            ViewGroup.LayoutParams surfaceViewLayoutParams = flContain.getLayoutParams();
+            ViewGroup.LayoutParams surfaceViewLayoutParams = mRlContain.getLayoutParams();
             surfaceViewLayoutParams.height = (int) (ScreenUtils.getScreenWidth(this) * 9.0f / 16);
             surfaceViewLayoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
 
+            isFullScreen = false;
+            mIvFullScreen.setBackgroundResource(R.drawable.ic_player_enlarge);
         } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {                //转到横屏了。
             //隐藏状态栏
             this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            flContain.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+            mRlContain.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                     | View.SYSTEM_UI_FLAG_FULLSCREEN);
             //设置view的布局，宽高
-            ViewGroup.LayoutParams surfaceViewLayoutParams = flContain.getLayoutParams();
+            ViewGroup.LayoutParams surfaceViewLayoutParams = mRlContain.getLayoutParams();
             surfaceViewLayoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT;
             surfaceViewLayoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
-
+            isFullScreen = true;
+            mIvFullScreen.setBackgroundResource(R.drawable.ic_player_shrink);
         }
     }
 
