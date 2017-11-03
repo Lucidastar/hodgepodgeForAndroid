@@ -214,6 +214,8 @@ public class VideoActivity extends AppCompatActivity {
         mTextVideoLengthFront = (TextView) findViewById(R.id.tv_duration);
         mSeekBar = (SeekBar) findViewById(R.id.sb_seek);
         mRlContain = (RelativeLayout) findViewById(R.id.rl_contain);
+
+//        mSurfaceView = (SurfaceView) findViewById(R.id.surfaceView);
     }
 
     private void checkPlayPermission() {
@@ -263,6 +265,9 @@ public class VideoActivity extends AppCompatActivity {
             mPlayer.setBufferingUpdateListener(new VideoBufferUpdateListener());
             mPlayer.setStopedListener(new VideoStoppedListener());
             mPlayer.setFrameInfoListener(new MyFrameInfoListener(this));
+            mPlayer.setVideoScalingMode(MediaPlayer.VideoScalingMode.VIDEO_SCALING_MODE_SCALE_TO_FIT);
+            mPlayer.setMuteMode(true);
+            mPlayer.setVolume(50);
             // 如果同时支持软解和硬解是有用
             mPlayer.setDefaultDecoder(1);
             // 重点: 在调试阶段可以使用以下方法打开native log
@@ -292,7 +297,7 @@ public class VideoActivity extends AppCompatActivity {
     private SurfaceHolder.Callback mSurfaceHolderCallBack = new SurfaceHolder.Callback() {
         @Override
         public void surfaceCreated(SurfaceHolder holder) {
-            //                holder.setType(SurfaceHolder.SURFACE_TYPE_GPU);
+//            holder.setType(SurfaceHolder.SURFACE_TYPE_GPU);
             holder.setKeepScreenOn(true);
             // Important: surfaceView changed from background to front, we need reset surface to mediaplayer.
             // 对于从后台切换到前台,需要重设surface;部分手机锁屏也会做前后台切换的处理
@@ -446,8 +451,17 @@ public class VideoActivity extends AppCompatActivity {
                 finish();
             }
         }
-        return true;
+        return false;
     }
+
+//    @Override
+//    public void onBackPressed() {
+//        if (isFullScreen) {
+//            setChangeScreen();
+//        } else {
+//            finish();
+//        }
+//    }
 
     private class MyFrameInfoListener implements MediaPlayer.MediaPlayerFrameInfoListener {
 
@@ -532,6 +546,7 @@ public class VideoActivity extends AppCompatActivity {
                 case MediaPlayer.ALIVC_ERR_READD:
 //                    mPlayer.reset();
                     mLLPlayError.setVisibility(View.VISIBLE);
+
                     break;
                 default:
                     break;
@@ -601,7 +616,7 @@ public class VideoActivity extends AppCompatActivity {
     private class VideoSizeChangeListener implements MediaPlayer.MediaPlayerVideoSizeChangeListener {
 
         public void onVideoSizeChange(int width, int height) {
-
+            KLog.i("视频大小进行改变了");
         }
     }
 
@@ -648,6 +663,10 @@ public class VideoActivity extends AppCompatActivity {
             ViewGroup.LayoutParams surfaceViewLayoutParams = mRlContain.getLayoutParams();
             surfaceViewLayoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT;
             surfaceViewLayoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
+
+            ViewGroup.LayoutParams layoutParams = mSurfaceView.getLayoutParams();
+            layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT;
+            layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
             isFullScreen = true;
             mIvFullScreen.setBackgroundResource(R.drawable.ic_player_shrink);
         }

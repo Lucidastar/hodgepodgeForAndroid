@@ -13,11 +13,18 @@
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         android:visibility="gone"/>
-
+            <SurfaceView
+                android:id="@+id/surfaceView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:visibility="gone"
+                />
     <FrameLayout
         android:id="@+id/fl_contain"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        >
     </FrameLayout>
 
     <!--加载动画-->
