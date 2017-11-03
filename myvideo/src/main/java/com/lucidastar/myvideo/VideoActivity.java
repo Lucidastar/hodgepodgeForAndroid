@@ -59,8 +59,8 @@ public class VideoActivity extends AppCompatActivity {
     //用来控制应用前后台切换的逻辑
     private boolean isCurrentRunningForeground = true;
     private boolean isFullScreen = false;
-    public final static int TAG_VOD=0;//录播
-    public final static int TAG_LIVE=1;//直播
+    public final static int TAG_VOD = 0;//录播
+    public final static int TAG_LIVE = 1;//直播
     private static final int REQUEST_READ_PHONE = 1;
 
     private int playType = TAG_VOD;
@@ -105,6 +105,7 @@ public class VideoActivity extends AppCompatActivity {
     private float speed = 1.0f;
     private RelativeLayout mRlContain;
     private boolean isCompleted = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,7 +123,7 @@ public class VideoActivity extends AppCompatActivity {
         mIvFullScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            setChangeScreen();
+                setChangeScreen();
             }
         });
 
@@ -176,11 +177,11 @@ public class VideoActivity extends AppCompatActivity {
         mIvPlayOrPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mPlayer.isPlaying()){
+                if (mPlayer.isPlaying()) {
                     pause();
                     mLoading.setVisibility(View.GONE);
                     mIvCenterPlay.setVisibility(View.VISIBLE);
-                }else {
+                } else {
                     start();
                     mLoading.setVisibility(View.VISIBLE);
                     mIvCenterPlay.setVisibility(View.GONE);
@@ -230,11 +231,11 @@ public class VideoActivity extends AppCompatActivity {
     }
 
     //获取参数
-    private void getParams(){
+    private void getParams() {
         Intent intent = getIntent();
         playUrl = intent.getStringExtra("videoUrl");
-        isFullScreen = intent.getBooleanExtra("isFullScreen",false) ;
-        playType = intent.getIntExtra("playType",TAG_VOD);
+        isFullScreen = intent.getBooleanExtra("isFullScreen", false);
+        playType = intent.getIntExtra("playType", TAG_VOD);
     }
 
     //实例化播放器的参数
@@ -275,16 +276,16 @@ public class VideoActivity extends AppCompatActivity {
     }
 
 
-    public static Intent getInstance(Context context,String url,boolean isScreen,int playType){
-        Intent intent = new Intent(context,VideoActivity.class);
-        intent.putExtra("videoUrl",url);
-        intent.putExtra("isScreen",isScreen);
-        intent.putExtra("playType",playType);
+    public static Intent getInstance(Context context, String url, boolean isScreen, int playType) {
+        Intent intent = new Intent(context, VideoActivity.class);
+        intent.putExtra("videoUrl", url);
+        intent.putExtra("isScreen", isScreen);
+        intent.putExtra("playType", playType);
         return intent;
     }
 
-    public void startVideo(Context context, String url, boolean isScreen, int playType){
-        Intent instance = getInstance(context, url, isScreen,playType);
+    public void startVideo(Context context, String url, boolean isScreen, int playType) {
+        Intent instance = getInstance(context, url, isScreen, playType);
         VideoActivity.this.startActivity(instance);
     }
 
@@ -309,9 +310,9 @@ public class VideoActivity extends AppCompatActivity {
 
         @Override
         public void surfaceDestroyed(SurfaceHolder holder) {
-                if (mPlayer != null) {
-                    mPlayer.releaseVideoSurface();
-                }
+            if (mPlayer != null) {
+                mPlayer.releaseVideoSurface();
+            }
         }
     };
 
@@ -339,6 +340,7 @@ public class VideoActivity extends AppCompatActivity {
     private void stopUpdateTimer() {
         progressUpdateTimer.removeMessages(0);
     }
+
     private Handler progressUpdateTimer = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -347,10 +349,10 @@ public class VideoActivity extends AppCompatActivity {
         }
     };
 
-    private void setChangeScreen(){
-        if(getRequestedOrientation()!= ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE && !isFullScreen){//设置横屏
+    private void setChangeScreen() {
+        if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE && !isFullScreen) {//设置横屏
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        }else {
+        } else {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
     }
@@ -365,6 +367,7 @@ public class VideoActivity extends AppCompatActivity {
 
         }
     }
+
     private void pause() {
         if (mPlayer != null) {
             mPlayer.pause();
@@ -385,6 +388,7 @@ public class VideoActivity extends AppCompatActivity {
             mIvPlayOrPause.setBackgroundResource(R.drawable.ic_player_start);
         }
     }
+
     //销毁
     private void destroy() {
         if (mPlayer != null) {
@@ -435,32 +439,33 @@ public class VideoActivity extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK){
-            if (isFullScreen){
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+            if (isFullScreen) {
                 setChangeScreen();
-            }else {
+            } else {
                 finish();
             }
         }
         return true;
     }
 
-    private class MyFrameInfoListener implements  MediaPlayer.MediaPlayerFrameInfoListener {
+    private class MyFrameInfoListener implements MediaPlayer.MediaPlayerFrameInfoListener {
 
         private WeakReference<VideoActivity> vodModeActivityWeakReference;
 
-        public MyFrameInfoListener(VideoActivity vodModeActivity)
-        {
+        public MyFrameInfoListener(VideoActivity vodModeActivity) {
             vodModeActivityWeakReference = new WeakReference<VideoActivity>(vodModeActivity);
         }
+
         @Override
         public void onFrameInfoListener() {
             VideoActivity vodModeActivity = vodModeActivityWeakReference.get();
-            if(vodModeActivity != null) {
+            if (vodModeActivity != null) {
                 vodModeActivity.updateLogInfo();
             }
         }
     }
+
     private void updateLogInfo() {
         Map<String, String> debugInfo = mPlayer.getAllDebugInfo();
         long createPts = 0;
