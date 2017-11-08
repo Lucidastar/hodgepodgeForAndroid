@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lucidastar.hodgepodge">
+          package="com.lucidastar.hodgepodge">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <!-- 拦截短信权限 -->
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
 
     <application
         android:name=".MyApplication"
@@ -22,60 +22,69 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.TestActivity" />
-        <activity android:name=".ui.activity.statusbar.ChangeStatusBarActivity" />
-        <activity android:name=".ui.activity.statusbar.ToolBarToUse" />
-        <activity android:name=".ui.activity.statusbar.ToolBarSearchActivity" />
-        <activity android:name=".ui.activity.bottomsheet.BottomSheetActivity" />
-        <activity android:name=".ui.activity.layout.AppBarLayoutActivity" />
+        <activity android:name=".ui.TestActivity"/>
+        <activity android:name=".ui.activity.statusbar.ChangeStatusBarActivity"/>
+        <activity android:name=".ui.activity.statusbar.ToolBarToUse"/>
+        <activity android:name=".ui.activity.statusbar.ToolBarSearchActivity"/>
+        <activity android:name=".ui.activity.bottomsheet.BottomSheetActivity"/>
+        <activity android:name=".ui.activity.layout.AppBarLayoutActivity"/>
 
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="${UMENG_CHANNEL_VALUE}" />
+            android:value="${UMENG_CHANNEL_VALUE}"/>
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="5664ec80e0f55a0b68000147" />
+            android:value="5664ec80e0f55a0b68000147"/>
 
         <receiver
             android:name=".ui.activity.otherfeature.receiver.InterceptSMSReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter android:priority="1000">
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>
         </receiver>
 
-        <service android:name=".ui.activity.otherfeature.saidl.LocalService" />
+        <service android:name=".ui.activity.otherfeature.saidl.LocalService"/>
 
-        <activity android:name=".ui.activity.otherfeature.TestSMSRecieverActivity" />
-        <activity android:name=".ui.activity.otherfeature.handler.TestHandlerActivity" />
-        <activity android:name=".ui.activity.otherfeature.TestBitmapActivity" />
-        <activity android:name=".ui.activity.otherfeature.saidl.StudentAidlActivity" />
-        <activity android:name=".ui.activity.custom.CustomActivity" />
-        <activity android:name=".ui.activity.custom.CustomCalendarActivity" />
+        <activity android:name=".ui.activity.otherfeature.TestSMSRecieverActivity"/>
+        <activity android:name=".ui.activity.otherfeature.handler.TestHandlerActivity"/>
+        <activity android:name=".ui.activity.otherfeature.TestBitmapActivity"/>
+        <activity android:name=".ui.activity.otherfeature.saidl.StudentAidlActivity"/>
+        <activity android:name=".ui.activity.custom.CustomActivity"/>
+        <activity android:name=".ui.activity.custom.CustomCalendarActivity"/>
         <activity
             android:name=".ui.activity.layout.CollapsingToolbarActivity"
             android:label="@string/title_activity_collapsing_toolbar"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".ui.activity.layout.TextInputLayoutActivity" />
-        <activity android:name=".ui.activity.otherfeature.animation.AnimationActivity" />
-        <activity android:name=".ui.activity.otherfeature.animation.PropertyAnimActivity"></activity>
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".ui.activity.layout.TextInputLayoutActivity"/>
+        <activity android:name=".ui.activity.otherfeature.animation.AnimationActivity"/>
+        <activity android:name=".ui.activity.otherfeature.animation.PropertyAnimActivity"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.lucidastar.hodgepodge.installapk"
-            android:grantUriPermissions="true"
-            android:exported="false">
-            <!--元数据-->
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <!-- 元数据 -->
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_path" />
+                android:resource="@xml/file_path"/>
         </provider>
+
+        <activity
+            android:name=".ui.activity.demolist.DemoListActivity"
+            android:label="@string/title_activity_demo_list"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity android:name=".ui.activity.demolist.picandcomment.PicAndCommentActivity">
+        </activity>
     </application>
 
 </manifest>

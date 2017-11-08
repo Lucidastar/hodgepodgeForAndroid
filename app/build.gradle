@@ -3,6 +3,9 @@ apply plugin: 'com.jakewharton.butterknife'
 
 //Properties prop = new Properties()
 //prop.load(new FileInputStream(file("../signing.properties")))
+configurations.all {
+    resolutionStrategy.force 'com.android.support:support-annotations:25.1.0'
+}
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
@@ -124,6 +127,12 @@ dependencies {
     compile 'com.umeng.analytics:analytics:latest.integration'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+//    compile 'com.github.bumptech.glide:glide:4.3.1'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
+
 }

@@ -25,6 +25,10 @@
             android:id="@+id/nav_test_other_feature"
             android:icon="@drawable/ic_assignment_news"
             android:title="@string/TestOtherFeature"/>
+        <item
+            android:id="@+id/nav_test_demo_list"
+            android:icon="@drawable/ic_assignment_news"
+            android:title="@string/TestDemoList"/>
 
     </group>
 

@@ -7,6 +7,7 @@
     <string name="TestDagger">测试dagger</string>
     <string name="TestWidget">学习各个组件的使用</string>
     <string name="TestOtherFeature">学习其他功能</string>
+    <string name="TestDemoList">例子列表</string>
     <string name="tools">设置</string>
     <string name="no_photo_mode">无图模式</string>
     <string name="night_mode">夜间模式</string>
@@ -109,4 +110,5 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_demo_list">DemoListActivity</string>
 </resources>
