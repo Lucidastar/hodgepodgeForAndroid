@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Hodgepodge.iml" filepath="$PROJECT_DIR$/Hodgepodge.iml" />
+      <module fileurl="file://G:\MrHanWork\other\hodgepodgeForAndroid\Hodgepodge.iml" filepath="G:\MrHanWork\other\hodgepodgeForAndroid\Hodgepodge.iml" />
       <module fileurl="file://$PROJECT_DIR$/Library/Library.iml" filepath="$PROJECT_DIR$/Library/Library.iml" />
       <module fileurl="file://$PROJECT_DIR$/Library/StatusBarUtil/StatusBarUtil.iml" filepath="$PROJECT_DIR$/Library/StatusBarUtil/StatusBarUtil.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />

@@ -27,4 +27,8 @@
         android:title="组合测试"
         app:showAsAction="never"
         />
+    <item android:id="@+id/item_xml"
+        android:title="xml文件测试"
+        app:showAsAction="never"
+        />
 </menu>

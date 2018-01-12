@@ -1,8 +1,11 @@
 package com.lucidastar.hodgepodge.ui.activity.otherfeature.animation;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -59,6 +62,10 @@ public class PropertyAnimActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.property_anim_menu, menu);
         return true;
+    }
+
+    public void openButton2(View view) {
+        startActivity(new Intent(this,PropertyDemoActivity.class));
     }
 
     public void openButton1(View view) {
@@ -125,6 +132,9 @@ public class PropertyAnimActivity extends AppCompatActivity {
                     msg += "all";
                     startAnimation(4);
                     break;
+                case R.id.item_xml:
+                    startAnimation(5);
+                    break;
             }
 
             if (!msg.equals("")) {
@@ -154,8 +164,12 @@ public class PropertyAnimActivity extends AppCompatActivity {
             animSet.play(rotate).with(fadeInOut).after(moveIn);
             animSet.setDuration(5000);
             animSet.start();
+        }else if (pro == 5){
+            Animator animator1 = AnimatorInflater.loadAnimator(PropertyAnimActivity.this, R.animator.property_test);
+            animator1.setTarget(tvProperty);
+            animator1.start();
         }
-        if (pro != 4) {
+        if (pro != 4 && pro != 5) {
             animator.setDuration(5000);
             animator.start();
         }
