@@ -6,15 +6,55 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.lucidastar.hodgepodge.ui.activity.otherfeature.animation.PropertyDemoActivity">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:layout_collapseMode="pin"
         android:background="?attr/colorPrimary"
-        app:popupTheme="@style/AppTheme.PopupOverlay"
-        />
-    <com.lucidastar.hodgepodge.ui.activity.otherfeature.animation.view.MyAnimView
+        app:layout_collapseMode="pin"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.lucidastar.hodgepodge.ui.activity.otherfeature.animation.view.MyAnimView
+                android:layout_width="match_parent"
+                android:layout_height="400dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="测试动画"
+                android:clickable="true"
+                android:onClick="openAnim"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+
+                <com.lucidastar.hodgepodge.ui.activity.otherfeature.animation.view.DrawView
+                    android:id="@+id/history"
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp" />
+
+                <View
+                    android:id="@+id/target"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_alignBottom="@+id/history"
+                    android:layout_alignLeft="@+id/history"
+                    android:layout_marginBottom="60dp"
+                    android:background="@drawable/circle" />
+            </RelativeLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
 </LinearLayout>

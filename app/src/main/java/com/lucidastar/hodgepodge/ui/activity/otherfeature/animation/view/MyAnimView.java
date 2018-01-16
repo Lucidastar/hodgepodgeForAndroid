@@ -27,6 +27,7 @@ public class MyAnimView extends View {
 
     private Paint mPaint;
     private String color;
+    private int alpha;
     public MyAnimView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -52,6 +53,8 @@ public class MyAnimView extends View {
         mPaint.setColor(Color.parseColor(color));
 //        invalidate();
     }
+
+
 
     private void drawCircle(Canvas canvas) {
         float x = currentPoint.getX();
