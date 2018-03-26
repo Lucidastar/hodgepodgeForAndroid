@@ -4,9 +4,15 @@ import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.TimeAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -17,6 +23,7 @@ import android.widget.TextView;
 
 import com.lucidastar.hodgepodge.R;
 import com.mine.lucidastarutils.log.KLog;
+import com.mine.lucidastarutils.log.KLogUtil;
 import com.mine.lucidastarutils.utils.*;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -66,8 +73,10 @@ public class PropertyAnimActivity extends AppCompatActivity {
 
     public void openButton2(View view) {
         startActivity(new Intent(this,PropertyDemoActivity.class));
+
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void openButton1(View view) {
         int[] location = new int[2];
         tvProperty.getLocationOnScreen(location);
@@ -105,6 +114,7 @@ public class PropertyAnimActivity extends AppCompatActivity {
 //        ValueAnimator.ofObject()
 
 
+        testTimeAnim();
     }
 
     private Toolbar.OnMenuItemClickListener onMenuItemClick = new Toolbar.OnMenuItemClickListener() {
@@ -149,6 +159,7 @@ public class PropertyAnimActivity extends AppCompatActivity {
         ObjectAnimator animator = null;
         if (pro == 0) {
             animator = ObjectAnimator.ofFloat(tvProperty, "alpha", 1f, 3f, 1f);
+//            ObjectAnimator.ofInt(tvProperty, "alpha", 1, 3, 1);
         }else if (pro == 1){
             animator = ObjectAnimator.ofFloat(tvProperty, "rotation", 0f, 360f);
         }else if (pro == 2){
@@ -173,5 +184,25 @@ public class PropertyAnimActivity extends AppCompatActivity {
             animator.setDuration(5000);
             animator.start();
         }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    private void testTimeAnim(){
+        final TimeAnimator timeAnimator = new TimeAnimator();
+        timeAnimator.setTimeListener(new TimeAnimator.TimeListener() {
+            @Override
+            public void onTimeUpdate(TimeAnimator animation, long totalTime, long deltaTime) {
+                KLog.i("totalTime:"+totalTime+",deltaTime:"+deltaTime);
+            }
+        });
+        timeAnimator.start();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                timeAnimator.cancel();
+            }
+        },4000);
+
+        PackageManager packageManager = getPackageManager();
     }
 }
