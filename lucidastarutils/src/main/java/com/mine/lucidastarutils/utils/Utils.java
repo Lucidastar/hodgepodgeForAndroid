@@ -26,6 +26,17 @@ public class Utils {
         Utils.context = context.getApplicationContext();
         KLog.init(true, "Lucidastar");
     }
+
+    /**
+     * 初始化工具类
+     * @param context  上下文
+     * @param isShowLog  是否显示log
+     * @param tag  log的tag
+     */
+    public static void init(Context context,boolean isShowLog,String tag) {
+        Utils.context = context.getApplicationContext();
+        setKLog(isShowLog,tag);
+    }
     /**
      * 获取ApplicationContext
      *
@@ -38,5 +49,9 @@ public class Utils {
 
     public static Context getApp() {
         return context;
+    }
+
+    private static void setKLog(boolean isShowLog,String tag){
+        KLog.init(isShowLog, tag);
     }
 }
