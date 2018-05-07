@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.lucidastar.hodgepodge.R;
 
@@ -18,7 +19,9 @@ public class AppBarLayoutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_bar_layout);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mToolbar.setTitle("这是appBarLayout");
+//        mToolbar.setTitle("这是appBarLayout");
+        TextView textView = (TextView) findViewById(R.id.tv_title);
+        textView.setText("这是appBarLayout");
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         mToolbar.setTitleTextColor(getResources().getColor(R.color.white));

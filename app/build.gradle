@@ -139,5 +139,5 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
     compile 'com.github.lzyzsd:jsbridge:1.0.4'
-
+    compile 'com.jcodecraeer:xrecyclerview:1.5.9'
 }

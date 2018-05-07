@@ -17,14 +17,19 @@
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll" />
+            app:layout_scrollFlags="scroll" >
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="other"
+                />
+        </android.support.v7.widget.Toolbar>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
-            android:text="other"
-            />
+
 
     </android.support.design.widget.AppBarLayout>
 </RelativeLayout>

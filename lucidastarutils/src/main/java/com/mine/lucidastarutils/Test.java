@@ -5,4 +5,7 @@ package com.mine.lucidastarutils;
  */
 
 public class Test {
+    public static void main (String[] args){
+        System.out.println("主方法");
+    }
 }

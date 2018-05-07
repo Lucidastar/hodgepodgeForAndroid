@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.github.lzyzsd.jsbridge.BridgeWebView;
 import com.github.lzyzsd.jsbridge.DefaultHandler;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.lucidastar.hodgepodge.R;
 import com.lucidastar.hodgepodge.adapter.HeaderRecyclerAdapter;
 
@@ -39,9 +40,9 @@ public class TestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        mBridgeWebView = (BridgeWebView) findViewById(R.id.bwv_webView);
-        setWebView(mBridgeWebView);
-        mBridgeWebView.loadUrl("https://blog.csdn.net/kui2015/article/details/52249262");
+//        mBridgeWebView = (BridgeWebView) findViewById(R.id.bwv_webView);
+//        setWebView(mBridgeWebView);
+//        mBridgeWebView.loadUrl("https://blog.csdn.net/kui2015/article/details/52249262");
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mHeaderRecyclerAdapter = new HeaderRecyclerAdapter<String>() {
@@ -60,16 +61,35 @@ public class TestActivity extends AppCompatActivity {
                 }
         );
 
+        /*mRecyclerView.setAdapter(new RecyclerView.Adapter() {
+            @Override
+            public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                return new TestItemHolder(LayoutInflater.from(TestActivity.this).
+                        inflate(R.layout.item_test, parent, false));
+            }
+
+            @Override
+            public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+
+            }
+
+            @Override
+            public int getItemCount() {
+                return 5;
+            }
+        });*/
+
         mHeaderRecyclerAdapter.addDatas(Arrays.asList("sdf","sdf","sdfas","sdfa"));
         mHeaderRecyclerAdapter.setHeaderView(createHeaderView());
         bridgeWebView.loadUrl("https://blog.csdn.net/kui2015/article/details/52249262");
-        mHeaderRecyclerAdapter.setOnItemClickListener(new HeaderRecyclerAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position, Object data) {
-                Toast.makeText(TestActivity.this,"点击了",Toast.LENGTH_SHORT).show();
-                bridgeWebView.loadUrl("https://blog.csdn.net/kui2015/article/details/52249262");
-            }
-        });
+//        mRecyclerView.addHeaderView(createHeaderView());
+//        mHeaderRecyclerAdapter.setOnItemClickListener(new HeaderRecyclerAdapter.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(int position, Object data) {
+//                Toast.makeText(TestActivity.this,"点击了",Toast.LENGTH_SHORT).show();
+//                bridgeWebView.loadUrl("https://blog.csdn.net/kui2015/article/details/52249262");
+//            }
+//        });
     }
 
     public class TestItemHolder extends RecyclerView.ViewHolder {
@@ -82,7 +102,7 @@ public class TestActivity extends AppCompatActivity {
     }
 
     private View createHeaderView() {
-        View view = getLayoutInflater().inflate(R.layout.item_header, null);
+        View view = getLayoutInflater().inflate(R.layout.item_header, (ViewGroup)findViewById(android.R.id.content),false);
         bridgeWebView = (BridgeWebView) view.findViewById(R.id.bwv_webView);
         setWebView(bridgeWebView);
         bridgeWebView.loadUrl("https://blog.csdn.net/kui2015/article/details/52249262");
