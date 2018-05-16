@@ -118,4 +118,7 @@ public class MemoryManager {
         return 0;
     }
 
+	public static String externalMemoryAbsolutePath() {
+		return Environment.getExternalStorageDirectory().getAbsolutePath();
+	}
 }
