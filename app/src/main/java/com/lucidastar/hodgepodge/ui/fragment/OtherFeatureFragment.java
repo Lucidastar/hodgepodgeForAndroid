@@ -16,7 +16,12 @@ import com.lucidastar.hodgepodge.ui.activity.otherfeature.handler.TestHandlerAct
 import com.lucidastar.hodgepodge.ui.activity.otherfeature.saidl.StudentAidlActivity;
 import com.lucidastar.hodgepodge.ui.base.BaseFragment;
 import com.lucidastar.hodgepodge.view.CustomDialogFragment;
+import com.mine.lucidastarutils.constant.PermissionConstants;
+import com.mine.lucidastarutils.utils.AppUtils;
+import com.mine.lucidastarutils.utils.FileIOUtils;
+import com.mine.lucidastarutils.utils.FileUtils;
 import com.mine.lucidastarutils.utils.MemoryManager;
+import com.mine.lucidastarutils.utils.PermissionUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -46,7 +51,7 @@ public class OtherFeatureFragment extends BaseFragment {
         return R.layout.fragment_other_feature;
     }
 
-    @OnClick({R.id.btn_study_handler, R.id.btn_study_other,R.id.btn_study_bitmap,R.id.btn_study_aidl,R.id.btn_study_fragment_dialog,R.id.btn_study_custom_view,R.id.btn_study_animation,R.id.btn_install_apk})
+    @OnClick({R.id.btn_study_handler, R.id.btn_study_other, R.id.btn_study_bitmap, R.id.btn_study_aidl, R.id.btn_study_fragment_dialog, R.id.btn_study_custom_view, R.id.btn_study_animation, R.id.btn_install_apk})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_study_handler:
@@ -65,21 +70,21 @@ public class OtherFeatureFragment extends BaseFragment {
 
             case R.id.btn_study_fragment_dialog:
                 String content = "1、界面优化;2、加载数据的bug";
-                 CustomDialogFragment customDialogFragment = CustomDialogFragment.getInstance(content,false);
+                CustomDialogFragment customDialogFragment = CustomDialogFragment.getInstance(content, false);
 //                customDialogFragment.setRetainInstance(true);
                 customDialogFragment.setDialogButtonClickListener(new CustomDialogFragment.OnDialogButtonClickListener() {
                     @Override
                     public void cancelButtonClick() {
-                        Toast.makeText(getActivity(),"取消",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "取消", Toast.LENGTH_SHORT).show();
 
                     }
 
                     @Override
                     public void confirmButtonClick() {
-                        Toast.makeText(getActivity(),"开始下载",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "开始下载", Toast.LENGTH_SHORT).show();
                     }
                 });
-                customDialogFragment.show(getFragmentManager(),"customDialog");
+                customDialogFragment.show(getFragmentManager(), "customDialog");
                 break;
             case R.id.btn_study_custom_view:
                 startActivity(new Intent(getActivity(), CustomActivity.class));
@@ -88,40 +93,51 @@ public class OtherFeatureFragment extends BaseFragment {
             case R.id.btn_study_animation:
                 startActivity(new Intent(getActivity(), AnimationActivity.class));
                 break;
-                //安装apk
+            //安装apk
             case R.id.btn_install_apk:
                 /**
                  * 获取apk（保存的路径）
                  * 安装apk
                  */
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
+                if (PermissionUtils.isGranted(PermissionConstants.STORAGE)) {
 
-                            if (MemoryManager.externalMemoryAvailable()){
-                                String path = MemoryManager.externalMemoryAbsolutePath()+"/myapk";
-                                InputStream open = getActivity().getAssets().open("apks/test.apk");
-//                        boolean isWriteSuccess = FileIOUtils.writeFileFromIS(path,open);
-//                                File file = new File(path);
-//                                if (!file.exists()){
-//                                    file.mkdirs();
-//                                }
-//                                copyFilesFassets(getActivity(),"test.apk",path);
-                                copyAssetsToDst(getActivity(),"apks",path);
-//                        if (isWriteSuccess){
-////                            AppUtils.installApp(path+"test.apk","");
-//                        }
+                } else {
+                    PermissionUtils.permission(PermissionConstants.STORAGE).callback(new PermissionUtils.SimpleCallback() {
+                        @Override
+                        public void onGranted() {
+
+                        }
+
+                        @Override
+                        public void onDenied() {
+
+                        }
+                    });
+                }
+                if (MemoryManager.externalMemoryAvailable()) {
+                    String path = MemoryManager.externalMemoryAbsolutePath() + "/myapk/test.apk";
+                    InputStream open = null;
+                    if (FileUtils.isFileExists(path)) {
+                        AppUtils.installApp(path, "com.lucidastar.hodgepodge.installapk");
+                    } else {
+                        try {
+                            open = getActivity().getAssets().open("apks/test.apk");
+                            boolean isWriteSuccess = FileIOUtils.writeFileFromIS(path, open);
+                            if (isWriteSuccess) {
+                                AppUtils.installApp(path, "com.lucidastar.hodgepodge.installapk");
                             }
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
-                }).start();
+//
+                }
+
 
                 break;
         }
     }
+
     public void copyFilesFassets(Context context, String oldPath, String newPath) {
         try {
             String fileNames[] = context.getAssets().list(oldPath);//获取assets目录下的所有文件及目录名
@@ -129,14 +145,14 @@ public class OtherFeatureFragment extends BaseFragment {
                 File file = new File(newPath);
                 file.mkdirs();//如果文件夹不存在，则递归
                 for (String fileName : fileNames) {
-                    copyFilesFassets(context,oldPath + "/" + fileName,newPath+"/"+fileName);
+                    copyFilesFassets(context, oldPath + "/" + fileName, newPath + "/" + fileName);
                 }
             } else {//如果是文件
                 InputStream is = context.getAssets().open(oldPath);
                 FileOutputStream fos = new FileOutputStream("apks/test.apk");
                 byte[] buffer = new byte[1024];
-                int byteCount=0;
-                while((byteCount=is.read(buffer))!=-1) {//循环从输入流读取 buffer字节
+                int byteCount = 0;
+                while ((byteCount = is.read(buffer)) != -1) {//循环从输入流读取 buffer字节
                     fos.write(buffer, 0, byteCount);//将读取的输入流写入到输出流
                 }
                 fos.flush();//刷新缓冲区
@@ -150,6 +166,7 @@ public class OtherFeatureFragment extends BaseFragment {
 
         }
     }
+
     private void copyAssetsToDst(Context context, String srcPath, String dstPath) {
         try {
             String fileNames[] = context.getAssets().list(srcPath);

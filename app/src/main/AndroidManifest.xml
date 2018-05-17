@@ -67,17 +67,17 @@
         <activity android:name=".ui.activity.otherfeature.animation.AnimationActivity" />
         <activity android:name=".ui.activity.otherfeature.animation.PropertyAnimActivity" />
 
-        <!--<provider-->
-            <!--android:name="android.support.v4.content.FileProvider"-->
-            <!--android:authorities="com.lucidastar.hodgepodge.installapk"-->
-            <!--android:exported="false"-->
-            <!--android:grantUriPermissions="true">-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.lucidastar.hodgepodge.installapk"
+            android:exported="false"
+            android:grantUriPermissions="true">
 
-            <!--&lt;!&ndash; 元数据 &ndash;&gt;-->
-            <!--<meta-data-->
-                <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
-                <!--android:resource="@xml/file_path" />-->
-        <!--</provider>-->
+            <!-- 元数据 -->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path" />
+        </provider>
 
         <activity
             android:name=".ui.activity.demolist.DemoListActivity"

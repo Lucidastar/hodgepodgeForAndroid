@@ -39,7 +39,7 @@ public final class FileIOUtils {
     /**
      * Write file from input stream.
      *
-     * @param filePath The path of file.
+     * @param filePath The path of file.//文件的路径
      * @param is       The input stream.
      * @return {@code true}: success<br>{@code false}: fail
      */
@@ -716,17 +716,12 @@ public final class FileIOUtils {
     }
 
     private static boolean createOrExistsFile(final File file) {
-        if (file == null)
-            return false;
-        if (file.exists())
-            return file.isFile();
-        KLog.d("createOrExistsFile");
-        if (!createOrExistsDir(file.getParentFile()))
-            return false;
+        if (file == null) return false;
+        if (file.exists()) return file.isFile();
+        if (!createOrExistsDir(file.getParentFile())) return false;
         try {
             return file.createNewFile();
         } catch (IOException e) {
-            KLog.d("createOrExistsFile");
             e.printStackTrace();
             return false;
         }
