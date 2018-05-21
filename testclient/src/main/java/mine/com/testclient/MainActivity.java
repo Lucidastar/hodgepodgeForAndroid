@@ -24,6 +24,7 @@ import java.util.List;
 public class MainActivity extends BaseActivity {
 
 
+    //屏幕适配  compile 'com.facebook.rebound:rebound:0.3.8'的引用
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
