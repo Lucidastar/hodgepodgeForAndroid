@@ -9,6 +9,7 @@ import com.lucidastar.hodgepodge.R;
 import com.lucidastar.hodgepodge.ui.activity.bottomsheet.BottomSheetActivity;
 import com.lucidastar.hodgepodge.ui.activity.layout.AppBarLayoutActivity;
 import com.lucidastar.hodgepodge.ui.activity.layout.CollapsingToolbarActivity;
+import com.lucidastar.hodgepodge.ui.activity.layout.RecycleViewActivity;
 import com.lucidastar.hodgepodge.ui.activity.layout.TextInputLayoutActivity;
 import com.lucidastar.hodgepodge.ui.base.BaseFragment;
 
@@ -42,6 +43,7 @@ public class WidgetListFragment extends BaseFragment {
                 startActivity(new Intent(getActivity(), BottomSheetActivity.class));
                 break;
             case R.id.btn_recycleView:
+                startActivity(new Intent(getActivity(), RecycleViewActivity.class));
                 break;
             case R.id.btn_appBarLayout:
                 startActivity(new Intent(getActivity(), AppBarLayoutActivity.class));
