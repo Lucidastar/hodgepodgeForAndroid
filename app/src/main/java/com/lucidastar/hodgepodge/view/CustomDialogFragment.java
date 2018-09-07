@@ -37,10 +37,13 @@ public class CustomDialogFragment extends DialogFragment implements View.OnClick
     TextView tvCancel;
     @BindView(R.id.tv_confirm)
     TextView tvConfirm;
+    @BindView(R.id.tv_title)
+    TextView tvTitle;
     Unbinder unbinder;
     OnDialogButtonClickListener dialogButtonClickListener;
     private boolean isForce;
     private String updateContent;
+    private String mTitle;
     private void initListener() {
         tvCancel.setOnClickListener(this);
         tvConfirm.setOnClickListener(this);
@@ -51,6 +54,15 @@ public class CustomDialogFragment extends DialogFragment implements View.OnClick
         Bundle bundle = new Bundle();
         bundle.putString("updateContent",content);
         bundle.putBoolean("forceUp",isForce);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+    public static CustomDialogFragment getInstance(String content,String title,boolean isForce){
+        CustomDialogFragment fragment = new CustomDialogFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("updateContent",content);
+        bundle.putBoolean("forceUp",isForce);
+        bundle.putString("title",title);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -73,6 +85,7 @@ public class CustomDialogFragment extends DialogFragment implements View.OnClick
         Bundle arguments = getArguments();
         updateContent = arguments.getString("updateContent");
         isForce = arguments.getBoolean("forceUp");
+        mTitle = arguments.getString("title");
     }
 
     @NonNull
@@ -153,6 +166,9 @@ public class CustomDialogFragment extends DialogFragment implements View.OnClick
             String result = formatData(updateContent);
             tvUpdateContent.setText(result);
         }
+        if (!TextUtils.isEmpty(mTitle)){
+            tvTitle.setText(mTitle);
+        }
     }
 
     @Override
@@ -165,18 +181,18 @@ public class CustomDialogFragment extends DialogFragment implements View.OnClick
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.tv_cancel:
+                if (!isForce){
+                    dismiss();
+                }
                 if (dialogButtonClickListener != null){
-                    if (!isForce){
-                        dismiss();
-                    }
                     dialogButtonClickListener.cancelButtonClick();
                 }
                 break;
             case R.id.tv_confirm:
+                if (!isForce){
+                    dismiss();
+                }
                 if (dialogButtonClickListener != null){
-                    if (!isForce){
-                        dismiss();
-                    }
                     dialogButtonClickListener.confirmButtonClick();
                 }
                 break;

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.lucidastar.hodgepodge.ui.activity.layout.StudyFragmentActivity">
+
+    <include layout="@layout/app_toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/fl_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></FrameLayout>
+            <Button
+                android:id="@+id/btn_fragment_life"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="查看fragment的生命周期"
+                android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_add_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="添加一个fragment"
+                android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_remove_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="去除一个fragment"
+                android:textAllCaps="false" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_test"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:background="@color/white"
+                >
+            </android.support.v4.view.ViewPager>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

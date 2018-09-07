@@ -39,7 +39,17 @@ public class BottomSheetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_sheet);
         ButterKnife.bind(this);
+        mToolbar.setTitle("学习BottomSheet");
+        setSupportActionBar(mToolbar);
+        mToolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+        mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
 
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         //https://github.com/soarcn/BottomSheet
         //http://www.jianshu.com/p/38af0cf77352
         //http://www.jianshu.com/p/0a7383e0ad0f

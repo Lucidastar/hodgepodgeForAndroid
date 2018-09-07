@@ -72,7 +72,6 @@ public abstract class LazyLoadBaseFragment extends Fragment {
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
         KLog.e(getClass().getSimpleName() + "  onHiddenChanged dispatchChildVisibleState  hidden " + hidden);
-
         if (hidden) {
             dispatchUserVisibleHint(false);
         } else {
@@ -182,16 +181,16 @@ public abstract class LazyLoadBaseFragment extends Fragment {
     }
 
     public void onFragmentFirstVisible() {
-        KLog.e(getClass().getSimpleName() + "  对用户第一次可见");
+
 
     }
 
     public void onFragmentResume() {
-        KLog.e(getClass().getSimpleName() + "  对用户可见");
+
     }
 
     public void onFragmentPause() {
-        KLog.e(getClass().getSimpleName() + "  对用户不可见");
+
     }
 
     @Override

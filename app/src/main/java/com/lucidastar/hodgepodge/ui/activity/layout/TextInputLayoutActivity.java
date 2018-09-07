@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 import com.lucidastar.hodgepodge.R;
 import com.mine.lucidastarutils.utils.RegularUtils;
+import com.mine.lucidastarutils.utils.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -96,5 +97,9 @@ public class TextInputLayoutActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {}
         });
 
+    }
+
+    public void login(View view) {
+        ToastUtils.showShortToast("登录一下");
     }
 }

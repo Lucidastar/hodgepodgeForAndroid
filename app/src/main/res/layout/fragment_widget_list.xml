@@ -1,47 +1,61 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-              android:orientation="vertical"
-             tools:context="com.lucidastar.hodgepodge.ui.fragment.WidgetListFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.lucidastar.hodgepodge.ui.fragment.WidgetListFragment">
 
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="BottomSheet的学习及使用"
-        android:id="@+id/btn_bottom_sheet"
-        android:textAllCaps="false"
-        />
+            <Button
+                android:id="@+id/btn_bottom_sheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BottomSheet的学习及使用"
+                android:textAllCaps="false" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="recycleView的学习及使用"
-        android:id="@+id/btn_recycleView"
-        android:textAllCaps="false"
-        />
+            <Button
+                android:id="@+id/btn_recycleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="recycleView的学习及使用"
+                android:textAllCaps="false" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="appBarLayout的学习及使用"
-        android:id="@+id/btn_appBarLayout"
-        android:textAllCaps="false"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CollapsingToolbarLayout的学习及使用"
-        android:id="@+id/btn_collapsingToolbar"
-        android:textAllCaps="false"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextInputLayout的学习及使用"
-        android:id="@+id/btn_textInputLayout"
-        android:textAllCaps="false"
-        />
+            <Button
+                android:id="@+id/btn_appBarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="appBarLayout的学习及使用"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_collapsingToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CollapsingToolbarLayout的学习及使用"
+                android:textAllCaps="false" />
+
+            <Button
+            android:id="@+id/btn_textInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextInputLayout的学习及使用"
+            android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_study_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fragment的学习及使用"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

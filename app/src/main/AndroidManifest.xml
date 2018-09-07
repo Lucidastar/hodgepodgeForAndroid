@@ -86,9 +86,10 @@
         <activity
             android:name=".ui.activity.demolist.picandcomment.PicAndCommentActivity"
             android:label="@string/app_name"
-            android:launchMode="standard"></activity>
+            android:launchMode="standard" />
         <activity android:name=".ui.activity.otherfeature.animation.PropertyDemoActivity" />
-        <activity android:name=".ui.activity.layout.RecycleViewActivity"></activity>
+        <activity android:name=".ui.activity.layout.RecycleViewActivity" />
+        <activity android:name=".ui.activity.layout.StudyFragmentActivity"></activity>
     </application>
 
 </manifest>

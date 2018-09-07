@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.animation.TranslateAnimation;
 
 import com.lucidastar.hodgepodge.R;
 import com.lucidastar.hodgepodge.ui.activity.layout.adapter.UserInfoAdapter;
@@ -39,6 +40,7 @@ public class RecycleViewActivity extends AppCompatActivity {
                 changeUserInfo(position);
                 ToastUtils.showShortToast("位置：" + position);
                 KLog.i(user.toString());
+
             }
         });
     }
