@@ -5,8 +5,12 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
+
+import java.lang.reflect.Method;
 
 /** 
  * 获得屏幕相关的辅助类 
@@ -121,6 +125,58 @@ public class ScreenUtils
         view.destroyDrawingCache();  
         return bp;  
   
-    }  
+    }
+
+    /**
+     * 获取虚拟功能键高度
+     */
+    public static int getVirtualBarHeigh(Context context) {
+        int vh = 0;
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Display display = windowManager.getDefaultDisplay();
+        DisplayMetrics dm = new DisplayMetrics();
+        try {
+            @SuppressWarnings("rawtypes")
+            Class c = Class.forName("android.view.Display");
+            @SuppressWarnings("unchecked")
+            Method method = c.getMethod("getRealMetrics", DisplayMetrics.class);
+            method.invoke(display, dm);
+            vh = dm.heightPixels - windowManager.getDefaultDisplay().getHeight();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return vh;
+    }
+
+    public static int getVirtualBarHeigh(Activity activity) {
+        int titleHeight = 0;
+        Rect frame = new Rect();
+        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);
+        int statusHeight = frame.top;
+        titleHeight = activity.getWindow().findViewById(Window.ID_ANDROID_CONTENT).getTop() - statusHeight;
+        return titleHeight;
+    }
+
+    public static float getDensity(Context context) {
+        return context.getResources().getDisplayMetrics().density;
+    }
+    public static float getFontDensity(Context context) {
+        return context.getResources().getDisplayMetrics().scaledDensity;
+    }
+    public static int dp2px(Context context, float dp) {
+        return (int) (getDensity(context) * dp + 0.5f);
+    }
+
+    public static int px2dp(Context context, float px) {
+        return (int) (px / getDensity(context) + 0.5f);
+    }
+
+    public static int sp2px(Context context, float sp) {
+        return (int) (getFontDensity(context) * sp + 0.5f);
+    }
+
+    public static int px2sp(Context context, float px) {
+        return (int) (px / getFontDensity(context) + 0.5f);
+    }
   
 }

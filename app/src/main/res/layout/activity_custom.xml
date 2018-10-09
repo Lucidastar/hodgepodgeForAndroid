@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.lucidastar.hodgepodge.ui.activity.custom.CustomActivity">
 
     <Button
@@ -12,7 +11,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="自定义日历"
+        android:visibility="gone"
         android:textAllCaps="false" />
 
+    <com.lucidastar.hodgepodge.view.DragFloatActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:background="@color/trans"
+        android:visibility="gone"
+        app:rippleColor="@color/trans"
+        android:backgroundTint="@color/trans"
+        app:borderWidth="0dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/meizhi"
+        />
 
-</LinearLayout>
+    <com.lucidastar.hodgepodge.view.CustomViewTest
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:visibility="visible"
+        android:clickable="true"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorAccent"
+        />
+
+    <com.lucidastar.hodgepodge.view.DragImageView
+        android:id="@+id/test"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/meizhi"
+        android:visibility="visible"
+        android:layout_marginTop="80dp"
+        android:layout_alignParentRight="true"
+        />
+
+</RelativeLayout>
