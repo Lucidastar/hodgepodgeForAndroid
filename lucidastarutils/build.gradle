@@ -1,5 +1,14 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.8.1'
+    }
+}
 android {
     compileSdkVersion 25
     buildToolsVersion "26.0.2"
@@ -21,11 +30,20 @@ android {
     }
 }
 
+publish {
+    userOrg = 'lucidastar'  // bintray注册的用户名
+    groupId = 'com.lucidastar'  //compile引用时的第1部分groupId
+    artifactId = 'LucidaCommonUtils'  // bintray创建的package  compile引用时的第2部分项目名
+    publishVersion = '1.0.0'//compile引用时的第3部分版本号
+    desc = 'this is commonly utils for android'
+    website = 'https://github.com/Lucidastar'
+}
+
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
-    testCompile 'junit:junit:4.12'
+    androidTestImplementation 'junit:junit:4.12'
 }
