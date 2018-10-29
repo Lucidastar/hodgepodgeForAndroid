@@ -8,6 +8,9 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {

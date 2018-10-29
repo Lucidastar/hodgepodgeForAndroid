@@ -26,6 +26,9 @@ android {
 //            java.srcDirs = ['src/main/java', 'src/main/aidl']
 //        }
 //    }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
