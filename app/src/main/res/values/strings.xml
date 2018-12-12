@@ -111,4 +111,6 @@
     </string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_demo_list">DemoListActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
 </resources>

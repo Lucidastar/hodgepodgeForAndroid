@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+//apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 25
@@ -37,16 +37,16 @@ android {
 //    }
 
 }
-
-publish {
-    userOrg = 'lucidastar'  // bintray注册的用户名
-    repoName = 'LucidaCommonUtils'//要传到的maven的名字。你可能有多个maven，要传哪个写哪个。
-    groupId = 'com.lucidastar'  //compile引用时的第1部分groupId
-    artifactId = 'lucidastarutils'  // bintray创建的package  compile引用时的第2部分项目名
-    publishVersion = '1.0.0'//compile引用时的第3部分版本号
-    desc = 'this is commonly utils for android'
-    website = 'https://github.com/Lucidastar'
-}
+//https://blog.csdn.net/lxd_android/article/details/79076312
+//publish {
+//    userOrg = 'lucidastar'  // bintray注册的用户名
+//    repoName = 'LucidaCommonUtils'//要传到的maven的名字。你可能有多个maven，要传哪个写哪个。
+//    groupId = 'com.lucidastar'  //compile引用时的第1部分groupId
+//    artifactId = 'lucidastarutils'  // bintray创建的package  compile引用时的第2部分项目名
+//    publishVersion = '1.0.0'//compile引用时的第3部分版本号
+//    desc = 'this is commonly utils for android'
+//    website = 'https://github.com/Lucidastar'
+//}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

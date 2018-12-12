@@ -16,7 +16,6 @@
     <dimen name="edit_content_size">15sp</dimen>
 
 
-
     <dimen name="tool_bar_height">50dp</dimen>
     <dimen name="ll_search">300dp</dimen>
     <dimen name="normal_space">400dp</dimen>

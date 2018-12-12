@@ -89,7 +89,11 @@
             android:launchMode="standard" />
         <activity android:name=".ui.activity.otherfeature.animation.PropertyDemoActivity" />
         <activity android:name=".ui.activity.layout.RecycleViewActivity" />
-        <activity android:name=".ui.activity.layout.StudyFragmentActivity"></activity>
+        <activity android:name=".ui.activity.layout.StudyFragmentActivity" />
+        <activity
+            android:name=".ui.activity.layout.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

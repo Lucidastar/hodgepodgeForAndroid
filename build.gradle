@@ -27,6 +27,7 @@ allprojects {
         maven { url 'https://jitpack.io' }
 
         google()
+        mavenCentral()
     }
 
         tasks.withType(Javadoc).all {

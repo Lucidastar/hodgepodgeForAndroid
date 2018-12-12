@@ -10,6 +10,7 @@ import com.lucidastar.hodgepodge.ui.activity.bottomsheet.BottomSheetActivity;
 import com.lucidastar.hodgepodge.ui.activity.layout.AppBarLayoutActivity;
 import com.lucidastar.hodgepodge.ui.activity.layout.CollapsingToolbarActivity;
 import com.lucidastar.hodgepodge.ui.activity.layout.RecycleViewActivity;
+import com.lucidastar.hodgepodge.ui.activity.layout.ScrollingActivity;
 import com.lucidastar.hodgepodge.ui.activity.layout.StudyFragmentActivity;
 import com.lucidastar.hodgepodge.ui.activity.layout.TextInputLayoutActivity;
 import com.lucidastar.hodgepodge.ui.base.BaseFragment;
@@ -37,7 +38,7 @@ public class WidgetListFragment extends BaseFragment {
         return R.layout.fragment_widget_list;
     }
 
-    @OnClick({R.id.btn_bottom_sheet, R.id.btn_recycleView,R.id.btn_appBarLayout,R.id.btn_collapsingToolbar,R.id.btn_textInputLayout,R.id.btn_study_fragment})
+    @OnClick({R.id.btn_bottom_sheet, R.id.btn_recycleView,R.id.btn_appBarLayout,R.id.btn_collapsingToolbar,R.id.btn_textInputLayout,R.id.btn_study_fragment,R.id.btn_study_scrolling})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_bottom_sheet:
@@ -57,6 +58,9 @@ public class WidgetListFragment extends BaseFragment {
                 break;
             case R.id.btn_study_fragment:
                 startActivity(new Intent(getActivity(), StudyFragmentActivity.class));
+                break;
+            case R.id.btn_study_scrolling:
+                startActivity(new Intent(getActivity(), ScrollingActivity.class));
                 break;
         }
     }
