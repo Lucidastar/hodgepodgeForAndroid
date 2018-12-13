@@ -36,6 +36,33 @@
         <item name="android:textSize">15sp</item>
     </style>
 
+    <style name="MyToolbarTheme" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <!-- 更换Toolbar OVerFlow menu icon -->
+        <!--<item name="actionOverflowButtonStyle">@style/OverFlowIcon</item>-->
+        <!-- 添加这一句， 即可改变toolbar menu 图标的颜色-->
+        <item name="android:textColorSecondary">#ffffff</item>
+        <item name="android:colorBackground">@color/white</item><!-- menu设置背景颜色-->
+
+        <item name="overlapAnchor">false</item>  <!--设置不覆盖锚点-->
+
+    </style>
+
+
+    <style name="MyToolbarTheme1" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item> <!--浅蓝色-->
+        <item name="colorPrimaryDark">#3A5FCD</item> <!--深蓝色-->
+        <!--<item name="android:textColorSecondary">#ffffff</item>--><!--这个地方可以设置toolbar右边menu的按钮颜色-->
+        <item name="actionOverflowButtonStyle">@style/OverFlowIcon</item><!--这个地方可以覆盖toolbar右边按钮的样式-->
+        <item name="overlapAnchor">false</item><!--让menu在toolbar的下面弹出-->
+    </style>
+
+    <!-- toolbar弹出菜单样式 -->
+    <style name="ToolbarPopupTheme" parent="@style/AppTheme.PopupOverlay">
+        <item name="android:colorBackground">#d27474</item><!--设置menu列表的背景颜色-->
+        <item name="android:textColorPrimary">@android:color/white</item><!--设置menu中列表字体的颜色-->
+    </style>
+
+
     <style name="OverFlowIcon" parent="Widget.AppCompat.ActionButton.Overflow">
         <item name="android:src">@drawable/ic_menu_more_overflow</item>
     </style>
@@ -43,6 +70,7 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 
 
     <style name="TextInputLayoutStyle">
