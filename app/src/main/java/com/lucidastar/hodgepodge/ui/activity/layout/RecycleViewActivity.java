@@ -22,7 +22,7 @@ public class RecycleViewActivity extends AppCompatActivity {
     private UserInfoAdapter mUserInfoAdapter;
     private RecyclerView mRcvUser;
     private List<User> mUserList;
-
+    LinearLayoutManager manager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +43,21 @@ public class RecycleViewActivity extends AppCompatActivity {
 
             }
         });
+
+        mRcvUser.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                KLog.i(dy+"");
+            }
+        });
+
+
     }
 
     private void changeUserInfo(int position) {
@@ -57,7 +72,7 @@ public class RecycleViewActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        LinearLayoutManager manager = new LinearLayoutManager(this);
+         manager = new LinearLayoutManager(this);
         mRcvUser.setLayoutManager(manager);
         mUserList = new ArrayList<>();
         Random random = new Random();
