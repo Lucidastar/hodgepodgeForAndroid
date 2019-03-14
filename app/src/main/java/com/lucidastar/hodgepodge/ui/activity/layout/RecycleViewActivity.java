@@ -48,6 +48,7 @@ public class RecycleViewActivity extends AppCompatActivity {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
+                KLog.i("onScrollStateChanged"+newState);
             }
 
             @Override
