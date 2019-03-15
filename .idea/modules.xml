@@ -9,7 +9,6 @@
       <module fileurl="file://$PROJECT_DIR$/lucidastarutils/lucidastarutils.iml" filepath="$PROJECT_DIR$/lucidastarutils/lucidastarutils.iml" />
       <module fileurl="file://$PROJECT_DIR$/myvideo/myvideo.iml" filepath="$PROJECT_DIR$/myvideo/myvideo.iml" />
       <module fileurl="file://$PROJECT_DIR$/testclient/testclient.iml" filepath="$PROJECT_DIR$/testclient/testclient.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testdagger/testdagger.iml" filepath="$PROJECT_DIR$/testdagger/testdagger.iml" />
       <module fileurl="file://$PROJECT_DIR$/testserver/testserver.iml" filepath="$PROJECT_DIR$/testserver/testserver.iml" />
     </modules>
   </component>
