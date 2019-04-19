@@ -94,7 +94,8 @@
             android:name=".ui.activity.layout.ScrollingActivity"
             android:label="@string/title_activity_scrolling"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ui.activity.layout.ToolBarActivity"></activity>
+        <activity android:name=".ui.activity.layout.ToolBarActivity" />
+        <activity android:name=".ui.activity.api.MatrixStudyActivity"></activity>
     </application>
 
 </manifest>
