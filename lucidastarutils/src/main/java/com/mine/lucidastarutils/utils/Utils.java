@@ -25,6 +25,7 @@ public class Utils {
     public static void init(Context context) {
         Utils.context = context.getApplicationContext();
         KLog.init(true, "Lucidastar");
+//        ToastUtils.init(true);
     }
 
     /**

@@ -1,8 +1,10 @@
 package com.lucidastar.hodgepodge.ui.fragment;
 
+import android.content.Intent;
 import android.view.View;
 
 import com.lucidastar.hodgepodge.R;
+import com.lucidastar.hodgepodge.ui.activity.api.MatrixStudyActivity;
 import com.lucidastar.hodgepodge.ui.base.BaseFragment;
 
 import butterknife.OnClick;
@@ -26,7 +28,9 @@ public class TestAPIFragment extends BaseFragment {
     @OnClick({R.id.btn_matrix})
     public void onClick(View view) {
         switch (view.getId()) {
-
+            case R.id.btn_matrix:
+            startActivity(new Intent(getActivity(), MatrixStudyActivity.class));
+            break;
         }
     }
 }
