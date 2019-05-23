@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -36,16 +36,6 @@
         <item name="android:textSize">15sp</item>
     </style>
 
-    <style name="MyToolbarTheme" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
-        <!-- 更换Toolbar OVerFlow menu icon -->
-        <!--<item name="actionOverflowButtonStyle">@style/OverFlowIcon</item>-->
-        <!-- 添加这一句， 即可改变toolbar menu 图标的颜色-->
-        <item name="android:textColorSecondary">#ffffff</item>
-        <item name="android:colorBackground">@color/white</item><!-- menu设置背景颜色-->
-
-        <item name="overlapAnchor">false</item>  <!--设置不覆盖锚点-->
-
-    </style>
 
 
     <style name="MyToolbarTheme1" parent="Theme.AppCompat.Light.NoActionBar">
@@ -94,13 +84,12 @@
     <style name="HintErrorAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/edit_hint_size</item>
         <item name="android:textColor">@color/colorHintError</item>
-        <item name="textColorError">@color/colorHintError</item>
+
     </style>
 
     <style name="TextErrorAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/edit_hint_size</item>
         <item name="android:textColor">@color/colorTextError</item>
-        <item name="textColorError">@color/colorTextError</item>
     </style>
 
     <declare-styleable name="CircleProgressView">

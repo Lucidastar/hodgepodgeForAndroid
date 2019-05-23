@@ -14,6 +14,7 @@ import com.lucidastar.hodgepodge.ui.activity.otherfeature.TestBitmapActivity;
 import com.lucidastar.hodgepodge.ui.activity.otherfeature.animation.AnimationActivity;
 import com.lucidastar.hodgepodge.ui.activity.otherfeature.handler.TestHandlerActivity;
 import com.lucidastar.hodgepodge.ui.activity.otherfeature.saidl.StudentAidlActivity;
+import com.lucidastar.hodgepodge.ui.activity.otherfeature.view.StudyViewActivity;
 import com.lucidastar.hodgepodge.ui.base.BaseFragment;
 import com.lucidastar.hodgepodge.view.CustomDialogFragment;
 import com.mine.lucidastarutils.constant.PermissionConstants;
@@ -51,7 +52,7 @@ public class OtherFeatureFragment extends BaseFragment {
         return R.layout.fragment_other_feature;
     }
 
-    @OnClick({R.id.btn_study_handler, R.id.btn_study_other, R.id.btn_study_bitmap, R.id.btn_study_aidl, R.id.btn_study_fragment_dialog, R.id.btn_study_custom_view, R.id.btn_study_animation, R.id.btn_install_apk})
+    @OnClick({R.id.btn_study_handler, R.id.btn_study_other, R.id.btn_study_bitmap, R.id.btn_study_aidl, R.id.btn_study_fragment_dialog, R.id.btn_study_custom_view, R.id.btn_study_animation, R.id.btn_install_apk,R.id.btn_view_point})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_study_handler:
@@ -134,6 +135,10 @@ public class OtherFeatureFragment extends BaseFragment {
                 }
 
 
+                break;
+
+            case R.id.btn_view_point:
+                startActivity(new Intent(getActivity(), StudyViewActivity.class));
                 break;
         }
     }

@@ -1,7 +1,7 @@
 package com.mine.lucidastarutils.utils;
 
 import android.content.Context;
-import android.support.compat.BuildConfig;
+//import android.support.compat.BuildConfig;
 
 import com.mine.lucidastarutils.log.KLog;
 

@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lucidastar.hodgepodge.ui.activity.layout.ToolBarActivity">
+    android:orientation="vertical"
+    tools:context=".ui.activity.otherfeature.view.StudyViewActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:layout_collapseMode="pin"
         android:background="?attr/colorPrimary"
         android:theme="@style/MyToolbarTheme1"
+        app:layout_collapseMode="pin"
         app:popupTheme="@style/ToolbarPopupTheme"
         tools:ignore="MissingConstraints" />
-    <!--app:popupTheme="@style/MyToolbarTheme"-->
-    <!--android:theme="@style/MyToolbarTheme""-->
-</android.support.constraint.ConstraintLayout>
+    <com.lucidastar.hodgepodge.ui.activity.otherfeature.view.cusview.CanvasView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

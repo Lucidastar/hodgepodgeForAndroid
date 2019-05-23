@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 //        startActivity(new Intent(this,VideoActivity.class));
 
 //        Intent intent = VideoActivity.getInstance(this,"http://player.alicdn.com/video/aliyunmedia.mp4",false,VideoActivity.TAG_VOD);
-        Intent intent = VideoActivity.getInstance(this,"http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8",false,VideoActivity.TAG_LIVE);
+        Intent intent = VideoActivity.getInstance(this,"http://cctvalih5c.v.myalicdn.com/live/cctv1_2/index.m3u8",false,VideoActivity.TAG_LIVE);
         startActivity(intent);
     }
 }

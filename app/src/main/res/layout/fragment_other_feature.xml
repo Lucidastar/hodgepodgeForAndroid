@@ -64,5 +64,12 @@
             android:layout_height="wrap_content"
             android:text="安装apk"
             android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_view_point"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View的一些知识点"
+            android:textAllCaps="false" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
