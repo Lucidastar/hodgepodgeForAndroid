@@ -16,7 +16,14 @@
         app:layout_collapseMode="pin"
         app:popupTheme="@style/ToolbarPopupTheme"
         tools:ignore="MissingConstraints" />
+
     <com.lucidastar.hodgepodge.ui.activity.otherfeature.view.cusview.CanvasView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        />
+
+    <com.lucidastar.hodgepodge.ui.activity.otherfeature.view.cusview.CircleView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

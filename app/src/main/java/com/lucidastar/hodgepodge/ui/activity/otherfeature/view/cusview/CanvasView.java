@@ -50,8 +50,9 @@ public class CanvasView extends View {
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        canvas.drawColor(Color.parseColor("#ccffcc"));//画背景
+
+//        canvas.drawColor(Color.parseColor("#ccffcc"));//画背景
+        canvas.drawBitmap(mBitmap,new Rect(0,0,getWidth(),getBottom()),new Rect(0,0,getWidth(),getBottom()),mPaint);
         canvas.drawLine(0,0,300,300,mPaint);//划线
         canvas.drawCircle(300,300,60,mPaint);//画圆
         canvas.drawPath(mPath,mPaint);//画路径
@@ -60,7 +61,7 @@ public class CanvasView extends View {
         canvas.drawArc(new RectF(100,800,500,1200),180,180,false, mPaint1);//画一个圆弧
 //        canvas.drawBitmap(mBitmap,200,850,mPaint);
 
-        canvas.drawBitmap(mBitmap,new Rect(mBitmap.getWidth()/3,300,mBitmap.getWidth()/2+400,1000),new Rect(mBitmap.getWidth()/3,300,mBitmap.getWidth()/2+400,1000),mPaint);
+//        canvas.drawBitmap(mBitmap,new Rect(mBitmap.getWidth()/3,300,mBitmap.getWidth()/2+400,1000),new Rect(mBitmap.getWidth()/3,300,mBitmap.getWidth()/2+400,1000),mPaint);
         //第一个参数为要绘制的bitmap对象，第二个参数为要绘制的Bitmap对象的矩形区域，第三个参数为要将bitmap绘制在屏幕的什么地方，第四个参数为Paint对象。
         //画了图像的一部分
 
@@ -75,7 +76,9 @@ public class CanvasView extends View {
 
 //        canvas.drawVertices();//看名字是画一个垂直的  没懂怎么用
 //        canvas.clipOutRect(new RectF(0,0,1600,1600));//裁剪  这是api要求是26
-        canvas.translate(200,600);
-
+        canvas.save();
+        canvas.translate(1600,600);
+        canvas.restore();
+        super.onDraw(canvas);
     }
 }
