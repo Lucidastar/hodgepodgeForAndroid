@@ -25,6 +25,12 @@
 
     <com.lucidastar.hodgepodge.ui.activity.otherfeature.view.cusview.CircleView
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        />
+
+    <com.lucidastar.hodgepodge.ui.activity.otherfeature.view.cusview.ImageTextView
+        android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
 </LinearLayout>
