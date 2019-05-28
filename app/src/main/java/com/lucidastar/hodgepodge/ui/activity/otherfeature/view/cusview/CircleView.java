@@ -47,7 +47,7 @@ public class CircleView extends View {
 
         mPaint.setStyle(Paint.Style.FILL);
 
-        float offset = (fontMetrics.ascent + fontMetrics.descent) / 2;
+        float offset = (fontMetrics.ascent + fontMetrics.descent) / 2;//解决字体不居中的问题
         canvas.drawText("aaaaaa",getWidth() / 2,getHeight() / 2 - offset,mPaint);
 
     }
