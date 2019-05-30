@@ -8,6 +8,12 @@ import android.animation.TimeAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.shapes.Shape;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,6 +24,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewPropertyAnimator;
 import android.view.animation.Animation;
 import android.widget.TextView;
 
@@ -42,6 +49,12 @@ public class PropertyAnimActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initData();
         initListener();
+        Canvas canvas = new Canvas();
+        Drawable drawable = new ColorDrawable();
+        ((ColorDrawable) drawable).setColor(Color.parseColor("#ccffcc"));
+        drawable.draw(canvas);
+        tvProperty.setBackground(drawable);
+
     }
 
     private void initListener() {
@@ -97,7 +110,7 @@ public class PropertyAnimActivity extends AppCompatActivity {
         KLog.d("statusHeight的值：" + statusHeight);
 
 //        ValueAnimator valueAnimator = ValueAnimator.ofFloat(0f, 1f);
-        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 300);
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 1600);
         valueAnimator.setDuration(3000);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -114,7 +127,12 @@ public class PropertyAnimActivity extends AppCompatActivity {
 //        ValueAnimator.ofObject()
 
 
+
         testTimeAnim();
+
+
+        ViewPropertyAnimator animate = tvProperty.animate();
+
     }
 
     private Toolbar.OnMenuItemClickListener onMenuItemClick = new Toolbar.OnMenuItemClickListener() {
