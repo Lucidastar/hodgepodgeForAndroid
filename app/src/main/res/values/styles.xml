@@ -37,12 +37,12 @@
     </style>
 
 
-
     <style name="MyToolbarTheme1" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item> <!--浅蓝色-->
         <item name="colorPrimaryDark">#3A5FCD</item> <!--深蓝色-->
         <!--<item name="android:textColorSecondary">#ffffff</item>--><!--这个地方可以设置toolbar右边menu的按钮颜色-->
-        <item name="actionOverflowButtonStyle">@style/OverFlowIcon</item><!--这个地方可以覆盖toolbar右边按钮的样式-->
+        <item name="actionOverflowButtonStyle">@style/OverFlowIcon
+        </item><!--这个地方可以覆盖toolbar右边按钮的样式-->
         <item name="overlapAnchor">false</item><!--让menu在toolbar的下面弹出-->
     </style>
 
@@ -60,7 +60,6 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
 
 
     <style name="TextInputLayoutStyle">
@@ -118,4 +117,9 @@
         <attr name="cpv_outerSize" format="dimension" />
         <attr name="cpv_reachCapRound" format="boolean" />
     </declare-styleable>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>

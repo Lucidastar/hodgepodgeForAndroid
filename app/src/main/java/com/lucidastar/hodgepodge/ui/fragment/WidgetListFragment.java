@@ -12,6 +12,7 @@ import com.lucidastar.hodgepodge.ui.activity.layout.CollapsingToolbarActivity;
 import com.lucidastar.hodgepodge.ui.activity.layout.RecycleViewActivity;
 import com.lucidastar.hodgepodge.ui.activity.layout.ScrollingActivity;
 import com.lucidastar.hodgepodge.ui.activity.layout.StudyFragmentActivity;
+import com.lucidastar.hodgepodge.ui.activity.layout.TestActivity;
 import com.lucidastar.hodgepodge.ui.activity.layout.TextInputLayoutActivity;
 import com.lucidastar.hodgepodge.ui.activity.layout.ToolBarActivity;
 import com.lucidastar.hodgepodge.ui.base.BaseFragment;
@@ -61,7 +62,8 @@ public class WidgetListFragment extends BaseFragment {
                 startActivity(new Intent(getActivity(), StudyFragmentActivity.class));
                 break;
             case R.id.btn_study_scrolling:
-                startActivity(new Intent(getActivity(), ScrollingActivity.class));
+//                startActivity(new Intent(getActivity(), ScrollingActivity.class));
+                startActivity(new Intent(getActivity(), TestActivity.class));
                 break;
             case R.id.btn_study_toolbar:
                 startActivity(new Intent(getActivity(), ToolBarActivity.class));
