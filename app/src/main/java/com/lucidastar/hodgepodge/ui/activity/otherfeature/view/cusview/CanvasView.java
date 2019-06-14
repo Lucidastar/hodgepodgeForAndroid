@@ -44,7 +44,7 @@ public class CanvasView extends View {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {//layout改变了  就会调用
         super.onSizeChanged(w, h, oldw, oldh);
         mPath.reset();
-        mPath.addRect(400,400,600,600, Path.Direction.CCW);
+//        mPath.addRect(400,400,600,600, Path.Direction.CCW);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -52,13 +52,15 @@ public class CanvasView extends View {
     protected void onDraw(Canvas canvas) {
 
 //        canvas.drawColor(Color.parseColor("#ccffcc"));//画背景
-        canvas.drawBitmap(mBitmap,new Rect(0,0,getWidth(),getBottom()),new Rect(0,0,getWidth(),getBottom()),mPaint);
-        canvas.drawLine(0,0,300,300,mPaint);//划线
-        canvas.drawCircle(300,300,60,mPaint);//画圆
-        canvas.drawPath(mPath,mPaint);//画路径
-        canvas.drawTextOnPath("这是内容这是内容这是内容这是内容这是内容这是内容",mPath,20,20,mPaint);//在路径上写字
-        canvas.drawText("这是画的测试内容测试内容",0,500,mPaint);//画字
-        canvas.drawArc(new RectF(100,800,500,1200),180,180,false, mPaint1);//画一个圆弧
+//        canvas.drawBitmap(mBitmap,new Rect(0,0,getWidth(),getBottom()),new Rect(0,0,getWidth(),getBottom()),mPaint);
+//        canvas.drawLine(50,50,300,300,mPaint);//划线
+//        canvas.drawLine(300,300,50,200,mPaint);
+//        canvas.drawLine(50,200,50,50,mPaint);
+//        canvas.drawCircle(300,300,60,mPaint);//画圆
+//        canvas.drawPath(mPath,mPaint);//画路径
+//        canvas.drawTextOnPath("这是内容这是内容这是内容这是内容这是内容这是内容",mPath,20,20,mPaint);//在路径上写字
+//        canvas.drawText("这是画的测试内容测试内容",0,500,mPaint);//画字
+//        canvas.drawArc(new RectF(100,800,500,1200),180,180,false, mPaint1);//画一个圆弧
 //        canvas.drawBitmap(mBitmap,200,850,mPaint);
 
 //        canvas.drawBitmap(mBitmap,new Rect(mBitmap.getWidth()/3,300,mBitmap.getWidth()/2+400,1000),new Rect(mBitmap.getWidth()/3,300,mBitmap.getWidth()/2+400,1000),mPaint);
@@ -67,18 +69,29 @@ public class CanvasView extends View {
 
 //        canvas.drawPicture(new Picture());//这个不太理解，先不了解
 
-        canvas.drawPoint(100,1100,mPaint2);//画个点
+//        canvas.drawPoint(100,1100,mPaint2);//画个点
 
 
-        canvas.drawRect(new RectF(100,1300,400,1600),mPaint1);//画一个长方形  我设置成了正方形
+//        canvas.drawRect(new RectF(100,1300,400,1600),mPaint1);//画一个长方形  我设置成了正方形
 
-        canvas.drawRoundRect(new RectF(500,1300,900,1600),30,30,mPaint1);//画圆角长方形
+//        canvas.drawRoundRect(new RectF(500,1300,900,1600),30,30,mPaint1);//画圆角长方形
 
 //        canvas.drawVertices();//看名字是画一个垂直的  没懂怎么用
 //        canvas.clipOutRect(new RectF(0,0,1600,1600));//裁剪  这是api要求是26
-        canvas.save();
-        canvas.translate(1600,600);
-        canvas.restore();
+//        canvas.save();
+//        canvas.translate(1600,600);
+//        canvas.restore();
+        drawPathLine(canvas);
         super.onDraw(canvas);
+    }
+
+    private void drawPathLine(Canvas canvas){
+        mPaint.setColor(Color.RED);
+        mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        mPath.moveTo(50,50);
+        mPath.lineTo(400,200);
+        mPath.lineTo(50,380);
+        mPath.close();
+        canvas.drawPath(mPath,mPaint);
     }
 }

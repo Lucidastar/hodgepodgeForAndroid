@@ -27,4 +27,8 @@
     <color name="colorTextError">#00ff00</color>
     <color name="colorHintError">#FF0000</color>
     <color name="colorEditContent">#111111</color>
+    <color name="cr_9bc6f5">#9bc6f5</color>
+    <color name="cr_bad3f1">#bad3f1</color>
+    <color name="cr_d1e2f4">#d1e2f4</color>
+    <color name="cr_e8f0fa">#e8f0fa</color>
 </resources>

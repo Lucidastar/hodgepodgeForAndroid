@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.lucidastar.hodgepodge.R;
 import com.lucidastar.hodgepodge.ui.activity.otherfeature.handler.TestHandlerActivity;
@@ -40,9 +41,17 @@ public class MatrixStudyActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.btn_rotate:
                 ToastUtils.showShortToast("旋转");
-                rotate(mImageView);
+//                rotate(mImageView);
+                smoothScroll(100);
                 break;
         }
+    }
+
+    private void smoothScroll(int distance) {
+        ((LinearLayout)mImageView.getParent()).scrollTo(distance,0);
+//        mImageView.animate().translationX(distance).start();
+//        mImageView.clearAnimation();
+
     }
 
     private void rotate(ImageView imageView){
