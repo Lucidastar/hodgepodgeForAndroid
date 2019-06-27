@@ -52,6 +52,84 @@
 
     <com.lucidastar.hodgepodge.ui.activity.otherfeature.view.cusview.PathView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        />
+
+    <com.lucidastar.hodgepodge.ui.activity.otherfeature.view.cusview.StickyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_red_light"
+                android:tag="sticky"
+                android:text="姓名"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:background="@android:color/holo_blue_bright"
+                android:gravity="center"
+                android:text="zhang phil"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_red_light"
+                android:tag="sticky"
+                android:text="blog"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:background="@android:color/holo_orange_light"
+                android:gravity="center"
+                android:text="zhang phil csdn blog"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_red_light"
+                android:tag="sticky"
+                android:text="链接"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:background="@android:color/holo_purple"
+                android:gravity="center"
+                android:text="http://blog.csdn.net/zhangphil"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:background="#ffccff"
+                android:gravity="center"
+                android:text="zhang phil csdn blog"
+                android:textColor="@android:color/white" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:background="#ff00dd"
+                android:gravity="center"
+                android:text="zhang phil csdn blog"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+
+    </com.lucidastar.hodgepodge.ui.activity.otherfeature.view.cusview.StickyScrollView>
 
 </LinearLayout>
