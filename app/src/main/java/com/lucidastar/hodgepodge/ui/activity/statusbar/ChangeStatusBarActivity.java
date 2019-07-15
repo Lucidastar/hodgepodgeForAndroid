@@ -40,7 +40,7 @@ public class ChangeStatusBarActivity extends AppCompatActivity
                 onBackPressed();
             }
         });
-        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.colorPrimary),false);
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.colorPrimary),true);
     }
 
     public void initSystemBarTint() {
@@ -79,6 +79,7 @@ public class ChangeStatusBarActivity extends AppCompatActivity
         Random myRandom=new Random();
         int []ranColor ={0xff000000,0xFFFF4081,0xDE1BD255,0xDED96060,0xFFD99610,0x00ff0000}; //0xff000000 | random.nextInt(0x00ffffff);
         StatusBarCompat.setStatusBarColor(this, ranColor[myRandom.nextInt(6)]);
+
     }
 
     public void secondChange(View view){

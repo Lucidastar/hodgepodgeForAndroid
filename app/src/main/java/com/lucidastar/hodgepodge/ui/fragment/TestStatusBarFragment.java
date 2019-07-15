@@ -11,6 +11,7 @@ import com.lucidastar.hodgepodge.R;
 import com.lucidastar.hodgepodge.ui.activity.statusbar.ChangeStatusBarActivity;
 import com.lucidastar.hodgepodge.ui.activity.statusbar.ToolBarSearchActivity;
 import com.lucidastar.hodgepodge.ui.activity.statusbar.ToolBarToUse;
+import com.lucidastar.hodgepodge.ui.activity.statusbar.TopImageViewStatusActivity;
 import com.lucidastar.hodgepodge.ui.base.BaseFragment;
 
 
@@ -43,7 +44,7 @@ public class TestStatusBarFragment extends BaseFragment {
     }
 
 
-    @OnClick({R.id.studyToobar, R.id.changeBar,R.id.studySearch,R.id.btn_practice})
+    @OnClick({R.id.studyToobar, R.id.changeBar,R.id.studySearch,R.id.btn_practice,R.id.status_top_image})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.studyToobar:
@@ -64,6 +65,10 @@ public class TestStatusBarFragment extends BaseFragment {
                 intent.setData(Uri.parse("http://www.jianshu.com/p/e2ae6aaff696"));
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+                break;
+            case R.id.status_top_image:
+                startActivity(new Intent(getContext(), TopImageViewStatusActivity.class));
+
                 break;
         }
     }

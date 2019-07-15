@@ -25,6 +25,12 @@
         android:id="@+id/changeBar"/>
 
     <Button
+        android:text="顶部是ImageView的透明状态栏"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/status_top_image"/>
+
+    <Button
         android:text="查看资料"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
