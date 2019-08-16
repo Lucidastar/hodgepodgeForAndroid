@@ -68,6 +68,12 @@
                 android:layout_height="wrap_content"
                 android:text="ToolBar的学习及使用"
                 android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_study_tablayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TabLayout的学习及使用"
+                android:textAllCaps="false" />
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

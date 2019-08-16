@@ -19,7 +19,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.statusbar.TopImageViewStatusActivity"></activity>
+        <activity
+            android:name=".ui.activity.layout.StudyTabLayoutActivity"
+            android:label="@string/title_activity_study_tab_layout"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ui.activity.statusbar.TopImageViewStatusActivity" />
         <activity
             android:name=".ui.activity.layout.TestActivity"
             android:label="@string/title_activity_test"
