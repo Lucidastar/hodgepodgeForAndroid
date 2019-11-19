@@ -12,8 +12,9 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.android.util.statusbar.StatusBarCompat;
-import com.jaeger.library.StatusBarUtil;
+//import com.jaeger.library.StatusBarUtil;
 import com.lucidastar.hodgepodge.R;
+import com.lucidastar.hodgepodge.utils.StatusBarUtil;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.util.Random;

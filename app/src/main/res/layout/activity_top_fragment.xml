@@ -5,16 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.activity.statusbar.TopImageViewStatusActivity">
+    tools:context=".ui.activity.statusbar.TopFragmentActivity">
 
-    <ImageView
-        android:id="@+id/iv_top_image"
+
+    <FrameLayout
+        android:id="@+id/fl_container"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:scaleType="fitXY"
-        android:visibility="visible"
-        android:src="@drawable/meizhi" />
-
+        android:layout_height="211dp"/>
     <android.support.v7.widget.Toolbar
         android:id="@+id/tool_bar"
         android:layout_width="match_parent"
@@ -32,30 +29,12 @@
             android:background="@null"
             />
     </android.support.v7.widget.Toolbar>
-
     <LinearLayout
-        android:id="@+id/ll_view_offset"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="vertical"
-        android:visibility="gone"
-        />
-
-    <FrameLayout
-        android:id="@+id/fl_container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:visibility="gone"
-        ></FrameLayout>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="切换fragment"
-        android:onClick="changeFragment"
-        android:layout_gravity="bottom"
-        android:visibility="gone"
+        android:layout_height="40dp"
+        android:background="#ff00ff"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/fl_container"
         />
 
 </RelativeLayout>

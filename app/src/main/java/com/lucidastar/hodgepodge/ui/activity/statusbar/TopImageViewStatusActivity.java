@@ -3,6 +3,7 @@ package com.lucidastar.hodgepodge.ui.activity.statusbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -23,6 +24,7 @@ public class TopImageViewStatusActivity extends AppCompatActivity {
 //    LinearLayout mLlOffset;
 
     FrameLayout mFlContainer;
+    Toolbar mToolBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +37,9 @@ public class TopImageViewStatusActivity extends AppCompatActivity {
 //        mLlOffset = findViewById(R.id.ll_view_offset);
         mIvTop = findViewById(R.id.iv_top_image);
         mFlContainer = findViewById(R.id.fl_container);
+        mToolBar = findViewById(R.id.tool_bar);
         //这个是设置全屏，并且设置颜色
-//        StatusBarUtil.setTranslucentForImageView(this,0,mFlContainer);
+        StatusBarUtil.setTranslucentForImageView(this,mToolBar);
 //        StatusBarUtil.setTranslucentForImageViewInFragment(this, null);
         topImageViewStatusFragment = new TopImageViewStatusFragment();
         setFragment();

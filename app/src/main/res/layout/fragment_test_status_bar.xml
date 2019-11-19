@@ -28,7 +28,15 @@
         android:text="顶部是ImageView的透明状态栏"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAllCaps="false"
         android:id="@+id/status_top_image"/>
+
+    <Button
+        android:text="顶部是Fragment的透明状态栏"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:id="@+id/status_top_fragment"/>
 
     <Button
         android:text="查看资料"
