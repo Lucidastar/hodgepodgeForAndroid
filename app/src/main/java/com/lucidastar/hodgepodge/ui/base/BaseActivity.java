@@ -1,8 +1,11 @@
 package com.lucidastar.hodgepodge.ui.base;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.support.annotation.StringRes;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -27,11 +30,14 @@ import com.lucidastar.hodgepodge.ui.fragment.TestDaggerFragment;
 import com.lucidastar.hodgepodge.ui.fragment.TestIntentServiceFragment;
 import com.lucidastar.hodgepodge.ui.fragment.TestStatusBarFragment;
 import com.lucidastar.hodgepodge.ui.fragment.WidgetListFragment;
+import com.mine.lucidastarutils.log.KLog;
 import com.mine.lucidastarutils.utils.ToastUtils;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 
+import butterknife.BindViews;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * Created by hanxiaoxing on 16/12/26.
@@ -39,45 +45,29 @@ import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    private WindowManager mWindowManager = null;
-    private boolean mIsAddedView;
-    protected boolean mIsHasNavigationView;
-    private DrawerLayout mDrawerLayout;
-    private Class mClass;
+    protected Context mContext;
+    private Unbinder mUnbinder;
+
+    protected Toolbar toolbar;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        KLog.i(getClass().getSimpleName());
+        mContext = this;
+        setContentView(getLayoutId());
+        initViews();
+        initInjector();
+        initToolBar();
+        mUnbinder = ButterKnife.bind(this);
+
+    }
 
     public abstract int getLayoutId();
 
     public abstract void initInjector();
 
     public abstract void initViews();
-
-
-    public int lastFragmentIndex = 0;
-    Toolbar toolbar;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        KLog.i(getClass().getSimpleName());
-        int layoutId = getLayoutId();
-        setContentView(layoutId);
-        initInjector();
-        ButterKnife.bind(this);
-        initToolBar();
-        initViews();
-        if (mIsHasNavigationView) {
-            initDrawerLayout();
-        }
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.fl_container, getLeftFragment(1), makeTag(1)).commit();
-//        initSystemBarTint();
-    }
-    private void initToolBar() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.TestIntentService);
-        setSupportActionBar(toolbar);
-    }
+    public abstract void initToolBar();
 
 
     public void initSystemBarTint() {
@@ -104,128 +94,36 @@ public abstract class BaseActivity extends AppCompatActivity {
         getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
         return typedValue.data;
     }
-    private void initDrawerLayout() {
-
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        NavigationView navView = (NavigationView) findViewById(R.id.nav_view);
-
-        final ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        mDrawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
-        if (navView != null) {
-            navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(MenuItem item) {
-                    switch (item.getItemId()) {
-                        case R.id.nav_test_inservice:
-                            ToastUtils.showShortToast("舍弃");
-//                            controlShowFragment(1);
-//                            toolbar.setTitle(R.string.TestIntentService);
-                            break;
-                        case R.id.nav_test_status:
-                            controlShowFragment(2);
-                            toolbar.setTitle(R.string.TestStatusBar);
-                            break;
-                        case R.id.nav_test_dagger:
-                            ToastUtils.showShortToast("舍弃");
-//                            controlShowFragment(3);
-//                            toolbar.setTitle(R.string.TestDagger);
-                            break;
-                        case R.id.nav_test_widget:
-                            controlShowFragment(4);
-                            toolbar.setTitle(R.string.TestWidget);
-                            break;
-                        case R.id.nav_test_other_feature:
-                            controlShowFragment(5);
-                            toolbar.setTitle(R.string.TestOtherFeature);
-                            break;
-                        case R.id. nav_test_demo_list:
-                            controlShowFragment(6);
-                            toolbar.setTitle(R.string.TestDemoList);
-                            break;
-                        case R.id. nav_test_api_list:
-                            controlShowFragment(7);
-                            toolbar.setTitle(R.string.TestAPIList);
-                            break;
 
 
-                    }
-                    mDrawerLayout.closeDrawer(GravityCompat.START);
-                    return false;
-                }
-            });
+
+    protected void setTitleName(CharSequence titleName){
+        if (toolbar != null){
+            toolbar.setTitle(titleName);
         }
-
-        mDrawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-                if (mClass != null) {
-                    Intent intent = new Intent(BaseActivity.this, mClass);
-                    // 此标志用于启动一个Activity的时候，若栈中存在此Activity实例，则把它调到栈顶。不创建多一个
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                    startActivity(intent);
-                    overridePendingTransition(0, 0);
-                    mClass = null;
-                }
-            }
-        });
     }
 
-    //显示相应的Fragment
-    private void controlShowFragment(int position) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        Fragment lastFragment = fragmentManager.findFragmentByTag(makeTag(lastFragmentIndex));
-        if (lastFragment != null) {
-            fragmentTransaction.hide(lastFragment);
-        }
-        lastFragmentIndex = position;
 
-        Fragment currentFragment = fragmentManager.findFragmentByTag(makeTag(position));
-        if (currentFragment != null) {
-            fragmentTransaction.show(currentFragment);
-        } else {
-            if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
-                fragmentTransaction.add(R.id.fl_container, getLeftFragment(position), makeTag(position));
-            }
+    protected void setTitleName(@StringRes int titleName){
+        if (toolbar != null){
+            toolbar.setTitle(titleName);
         }
-        fragmentTransaction.commitAllowingStateLoss();
     }
 
-    private String makeTag(int position) {
-        return R.id.fl_container + "_" + position;
+
+    protected void startActivityClass(Class<?> clazz){
+        this.startActivityClass(clazz,new Intent());
     }
 
-    private BaseFragment getLeftFragment(int position) {
-        BaseFragment fragment = null;
-        switch (position) {
-            case 1:
-                fragment = new TestIntentServiceFragment();
-                break;
-            case 2:
-                fragment = new TestStatusBarFragment();
-                break;
-            case 3:
-                fragment = new TestDaggerFragment();
-                break;
-            case 4:
-                fragment = new WidgetListFragment();
-                break;
-            case 5:
-                fragment = new OtherFeatureFragment();
-                break;
-            case 6:
-                fragment = new DemoListFragment();
-                break;
-            case 7:
-                fragment = new TestAPIFragment();
-                break;
+    protected void startActivityClass(Class<?> clazz,Intent intent){
+        startActivity(intent.setClass(this,clazz));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mUnbinder != null){
+            mUnbinder.unbind();
         }
-        return fragment;
     }
-
 }

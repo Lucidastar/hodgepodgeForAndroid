@@ -116,4 +116,7 @@
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="title_activity_test">TestActivity</string>
     <string name="title_activity_study_tab_layout">StudyTabLayoutActivity</string>
+
+    <!--layout-->
+    <string name="layout_title_view_pager_study">viewPager的学习</string>
 </resources>
