@@ -55,11 +55,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         KLog.i(getClass().getSimpleName());
         mContext = this;
         setContentView(getLayoutId());
-        initViews();
-        initInjector();
-        initToolBar();
         mUnbinder = ButterKnife.bind(this);
-
+        initViews();
+        initToolBar();
+        initInjector();
     }
 
     public abstract int getLayoutId();
@@ -68,6 +67,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public abstract void initViews();
     public abstract void initToolBar();
+
+
 
 
     public void initSystemBarTint() {
@@ -107,6 +108,21 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void setTitleName(@StringRes int titleName){
         if (toolbar != null){
             toolbar.setTitle(titleName);
+        }
+    }
+
+    public void initTooBarAndFinish(@StringRes int titleName){
+        if (toolbar != null){
+            toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);//设置返回按钮
+            toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+            setTitleName(titleName);
+            setSupportActionBar(toolbar);
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
         }
     }
 
