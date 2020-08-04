@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context="com.lucidastar.hodgepodge.ui.activity.otherfeature.animation.PropertyDemoActivity">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -15,7 +15,7 @@
         app:layout_collapseMode="pin"
         app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -54,7 +54,7 @@
                     android:background="@drawable/circle" />
             </RelativeLayout>
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
 </LinearLayout>

@@ -2,13 +2,13 @@ package com.lucidastar.hodgepodge.view;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
+
+import androidx.annotation.Nullable;
 
 import com.mine.lucidastarutils.log.KLog;
 

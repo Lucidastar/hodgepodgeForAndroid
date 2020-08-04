@@ -1,12 +1,14 @@
 package com.lucidastar.hodgepodge.ui.activity.layout;
 
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 import com.lucidastar.hodgepodge.R;
 import com.lucidastar.hodgepodge.ui.activity.layout.adapter.ViewPagerAdapter;
 import com.lucidastar.hodgepodge.ui.base.BaseActivity;
+import com.mine.lucidastarutils.log.KLog;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,7 +34,27 @@ public class StudyViewPagerActivity extends BaseActivity {
 
     @Override
     public void initInjector() {
+        initListener();
+    }
 
+    private void initListener() {
+        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                int childCount = mViewPager.getChildCount();
+                KLog.d("数量==:"+childCount);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
     @Override
@@ -43,6 +65,12 @@ public class StudyViewPagerActivity extends BaseActivity {
             mTabLayout.addTab(mTabLayout.newTab());
         }
         mTabLayout.setupWithViewPager(mViewPager);
+
+        mViewPagerAdapter.notifyDataSetChanged();
+        int childCount = mViewPager.getChildCount();
+
+        KLog.d("数量:"+childCount);
+//        mViewPager.setOffscreenPageLimit(mTitleNames.size());
     }
 
     @Override
@@ -50,5 +78,24 @@ public class StudyViewPagerActivity extends BaseActivity {
         toolbar = findViewById(R.id.toolbar);
         initTooBarAndFinish(R.string.layout_title_view_pager_study);
     }
+
+    //删除一个tab
+    private void deleteOneTab(){
+
+    }
+    //添加一个tab
+    private void addOneTab(){
+
+    }
+    //中间删除一个tab
+    private void deleteMeddleTab(){
+
+    }
+    //定位到一个tab
+    private void toOneTab(){
+
+    }
+
+
 
 }

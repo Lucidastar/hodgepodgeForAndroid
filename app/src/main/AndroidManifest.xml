@@ -77,7 +77,7 @@
         <activity android:name=".ui.activity.otherfeature.animation.PropertyAnimActivity" />
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="com.lucidastar.hodgepodge.installapk"
             android:exported="false"
             android:grantUriPermissions="true">

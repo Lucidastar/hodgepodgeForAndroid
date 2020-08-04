@@ -2,15 +2,14 @@ package com.lucidastar.hodgepodge.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatTextView;
 
 import com.lucidastar.hodgepodge.R;
 
@@ -18,7 +17,7 @@ import com.lucidastar.hodgepodge.R;
  * Created by qiuyouzone on 2017/9/26.
  */
 
-public class CalendarDayTextView extends TextView {
+public class CalendarDayTextView extends AppCompatTextView {
 
     public boolean isToday = false;
     LayoutInflater inflater;

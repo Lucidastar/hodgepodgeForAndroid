@@ -3,8 +3,6 @@ package com.lucidastar.hodgepodge.ui.fragment;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Environment;
-import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Toast;
 
@@ -31,9 +29,6 @@ import java.io.InputStream;
 
 import butterknife.OnClick;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class OtherFeatureFragment extends BaseFragment {
 
 

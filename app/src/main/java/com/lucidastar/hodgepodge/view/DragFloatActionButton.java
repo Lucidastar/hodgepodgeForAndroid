@@ -2,12 +2,11 @@ package com.lucidastar.hodgepodge.view;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.support.design.widget.FloatingActionButton;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.animation.DecelerateInterpolator;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mine.lucidastarutils.log.KLog;
 import com.mine.lucidastarutils.utils.ScreenUtils;
 

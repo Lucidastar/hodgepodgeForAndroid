@@ -1,13 +1,6 @@
 package com.lucidastar.hodgepodge.ui.activity.bottomsheet;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.BottomSheetDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +8,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.lucidastar.hodgepodge.R;
 
 import java.util.ArrayList;
@@ -79,7 +80,8 @@ public class BottomSheetActivity extends AppCompatActivity {
             mBottomSheetDialog.setCancelable(true);
             mBottomSheetDialog.setCanceledOnTouchOutside(true);
             // 解决下滑隐藏dialog 后，再次调用show 方法显示时，不能弹出Dialog
-            View view1 = mBottomSheetDialog.getDelegate().findViewById(android.support.design.R.id.design_bottom_sheet);
+//            View view1 = mBottomSheetDialog.getDelegate().findViewById(android.support.design.R.id.design_bottom_sheet);
+          /*  View view1 = mBottomSheetDialog.getDelegate().findViewById(android.view.);
             final BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(view1);
             bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
                 @Override
@@ -95,7 +97,7 @@ public class BottomSheetActivity extends AppCompatActivity {
                 public void onSlide(@NonNull View bottomSheet, float slideOffset) {
 
                 }
-            });
+            });*/
         }else{
             mBottomSheetDialog.show();
         }

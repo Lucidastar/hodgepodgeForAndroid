@@ -5,9 +5,10 @@ package com.lucidastar.hodgepodge.ui.activity.demolist.picandcomment;
  */
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+
+import androidx.viewpager.widget.ViewPager;
 
 /**
  * Created by long on 2016/12/22.

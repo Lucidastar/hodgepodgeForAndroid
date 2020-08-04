@@ -1,19 +1,14 @@
 package com.lucidastar.hodgepodge.ui.activity.demolist.picandcomment;
 
 import android.content.Context;
-import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
+import androidx.viewpager.widget.PagerAdapter;
 
-import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
-import com.github.chrisbanes.photoview.PhotoViewAttacher;
 import com.lucidastar.hodgepodge.R;
-import com.mine.lucidastarutils.utils.NetworkUtils;
 
 import java.util.List;
 

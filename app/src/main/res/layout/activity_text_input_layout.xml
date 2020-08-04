@@ -6,19 +6,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.lucidastar.hodgepodge.ui.activity.layout.TextInputLayoutActivity">
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll" />
 
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_phoneNum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,9 +35,9 @@
             style="@style/EditTextStyle"
             android:inputType="phone"
             />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             android:hint="请输入密码"
             style="@style/EditTextStyle"
             android:inputType="textPassword" />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

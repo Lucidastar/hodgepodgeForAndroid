@@ -5,7 +5,7 @@
     android:orientation="vertical"
     tools:context="com.lucidastar.hodgepodge.ui.fragment.WidgetListFragment">
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none">
@@ -81,5 +81,5 @@
                 android:text="ViewPager的学习及使用"
                 android:textAllCaps="false" />
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

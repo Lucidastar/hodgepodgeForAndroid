@@ -3,22 +3,16 @@ package com.lucidastar.hodgepodge.ui.activity.layout.fragment;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+
 import com.lucidastar.hodgepodge.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link DemoFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link DemoFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class DemoFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.util.Log;
 import android.widget.ImageView;
 
+import androidx.multidex.BuildConfig;
+
 import com.bumptech.glide.BitmapRequestBuilder;
 import com.bumptech.glide.BitmapTypeRequest;
 import com.bumptech.glide.DrawableTypeRequest;
@@ -17,7 +19,6 @@ import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import com.lucidastar.hodgepodge.BuildConfig;
 
 import java.io.File;
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.lucidastar.hodgepodge.ui.activity.otherfeature.animation.AnimationActivity">
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -50,7 +50,7 @@
             android:layout_gravity="center_vertical"
             />
     </LinearLayout>
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none"
@@ -110,7 +110,7 @@
                 android:textColor="@color/white"
                 android:padding="2dp"
                 />
-            <android.support.v7.widget.AppCompatSeekBar
+            <androidx.appcompat.widget.AppCompatSeekBar
                 android:id="@+id/sb_translationX"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
                 android:textColor="@color/white"
                 android:padding="2dp"
                 />
-            <android.support.v7.widget.AppCompatSeekBar
+            <androidx.appcompat.widget.AppCompatSeekBar
                 android:id="@+id/sb_translationY"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
                 android:textColor="@color/white"
                 android:padding="2dp"
                 />
-            <android.support.v7.widget.AppCompatSeekBar
+            <androidx.appcompat.widget.AppCompatSeekBar
                 android:id="@+id/sb_rotationX"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -173,7 +173,7 @@
                 android:textColor="@color/white"
                 android:padding="2dp"
                 />
-            <android.support.v7.widget.AppCompatSeekBar
+            <androidx.appcompat.widget.AppCompatSeekBar
                 android:id="@+id/sb_rotationY"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -194,7 +194,7 @@
                 android:textColor="@color/white"
                 android:padding="2dp"
                 />
-            <android.support.v7.widget.AppCompatSeekBar
+            <androidx.appcompat.widget.AppCompatSeekBar
                 android:id="@+id/sb_scaleX"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -215,7 +215,7 @@
                 android:textColor="@color/white"
                 android:padding="2dp"
                 />
-            <android.support.v7.widget.AppCompatSeekBar
+            <androidx.appcompat.widget.AppCompatSeekBar
                 android:id="@+id/sb_scaleY"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -236,7 +236,7 @@
                 android:textColor="@color/white"
                 android:padding="2dp"
                 />
-            <android.support.v7.widget.AppCompatSeekBar
+            <androidx.appcompat.widget.AppCompatSeekBar
                 android:id="@+id/sb_pivotX"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -257,7 +257,7 @@
                 android:textColor="@color/white"
                 android:padding="2dp"
                 />
-            <android.support.v7.widget.AppCompatSeekBar
+            <androidx.appcompat.widget.AppCompatSeekBar
                 android:id="@+id/sb_pivotY"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -272,6 +272,6 @@
                 android:background="@color/black_sub"/>
         </LinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

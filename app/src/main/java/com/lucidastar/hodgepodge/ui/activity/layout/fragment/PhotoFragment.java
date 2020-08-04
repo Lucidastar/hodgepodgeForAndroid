@@ -2,21 +2,18 @@ package com.lucidastar.hodgepodge.ui.activity.layout.fragment;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.lucidastar.hodgepodge.R;
 import com.lucidastar.hodgepodge.ui.base.LazyLoadBaseFragment;
 import com.mine.lucidastarutils.log.KLog;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class PhotoFragment extends LazyLoadBaseFragment {
 
     private String mPhotoUrl;
@@ -82,6 +79,6 @@ public class PhotoFragment extends LazyLoadBaseFragment {
     public void onFragmentFirstVisible() {
         super.onFragmentFirstVisible();
         KLog.i(getClass().getSimpleName() + "位置"+mPosition+"====  对用户第一次可见");
-        Glide.with(this).load(mPhotoUrl).into(mIvTest);
+//        Glide.with(this).load(mPhotoUrl).into(mIvTest);
     }
 }

@@ -1,18 +1,18 @@
 package com.lucidastar.hodgepodge;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.material.navigation.NavigationView;
 import com.lucidastar.hodgepodge.ui.base.BaseActivity;
 import com.lucidastar.hodgepodge.ui.base.BaseFragment;
 import com.lucidastar.hodgepodge.ui.fragment.DemoListFragment;

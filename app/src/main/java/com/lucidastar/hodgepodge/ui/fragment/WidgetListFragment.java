@@ -2,7 +2,6 @@ package com.lucidastar.hodgepodge.ui.fragment;
 
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.lucidastar.hodgepodge.R;
@@ -21,9 +20,6 @@ import com.lucidastar.hodgepodge.ui.base.BaseFragment;
 
 import butterknife.OnClick;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class WidgetListFragment extends BaseFragment {
 
 

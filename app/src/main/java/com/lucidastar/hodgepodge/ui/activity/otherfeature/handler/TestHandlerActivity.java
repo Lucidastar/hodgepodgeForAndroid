@@ -5,7 +5,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.lucidastar.hodgepodge.R;
 import com.mine.lucidastarutils.log.KLog;

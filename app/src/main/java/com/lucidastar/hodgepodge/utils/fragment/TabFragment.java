@@ -1,10 +1,11 @@
 package com.lucidastar.hodgepodge.utils.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.lucidastar.hodgepodge.utils.UtilInstance;
 
@@ -21,7 +22,7 @@ public class TabFragment extends NavigationManager<Fragment> {
     private Fragment mFragment;
     private int mLayout;
 
-    public TabFragment(AppCompatActivity activity,int layout) {
+    public TabFragment(AppCompatActivity activity, int layout) {
         this.mFragmentManager = activity.getSupportFragmentManager();
         this.mLayout = layout;
     }

@@ -1,8 +1,9 @@
 package com.lucidastar.hodgepodge.utils.fragment;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 /**
  * Created by qiuyouzone on 2019/4/30.

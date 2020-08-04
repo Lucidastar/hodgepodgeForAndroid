@@ -6,10 +6,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.widget.AppCompatTextView;
 
 import java.util.Random;
 

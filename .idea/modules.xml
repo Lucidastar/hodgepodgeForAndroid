@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Library/Library.iml" filepath="$PROJECT_DIR$/Library/Library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/PerformanceAnalysis/PerformanceAnalysis.iml" filepath="$PROJECT_DIR$/PerformanceAnalysis/PerformanceAnalysis.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Library/StatusBarUtil/StatusBarUtil.iml" filepath="$PROJECT_DIR$/Library/StatusBarUtil/StatusBarUtil.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/hodgepodgeForAndroid.iml" filepath="$PROJECT_DIR$/hodgepodgeForAndroid.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lucidastarutils/lucidastarutils.iml" filepath="$PROJECT_DIR$/lucidastarutils/lucidastarutils.iml" />
-      <module fileurl="file://$PROJECT_DIR$/myvideo/myvideo.iml" filepath="$PROJECT_DIR$/myvideo/myvideo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testclient/testclient.iml" filepath="$PROJECT_DIR$/testclient/testclient.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testserver/testserver.iml" filepath="$PROJECT_DIR$/testserver/testserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Library/Library.iml" filepath="$PROJECT_DIR$/Library/Library.iml" group="hodgepodgeForAndroid/Library" />
+      <module fileurl="file://$PROJECT_DIR$/Library/StatusBarUtil/StatusBarUtil.iml" filepath="$PROJECT_DIR$/Library/StatusBarUtil/StatusBarUtil.iml" group="hodgepodgeForAndroid/Library/StatusBarUtil" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="hodgepodgeForAndroid/app" />
+      <module fileurl="file://$PROJECT_DIR$/hodgepodgeForAndroid.iml" filepath="$PROJECT_DIR$/hodgepodgeForAndroid.iml" group="hodgepodgeForAndroid" />
+      <module fileurl="file://$PROJECT_DIR$/lucidastarutils/lucidastarutils.iml" filepath="$PROJECT_DIR$/lucidastarutils/lucidastarutils.iml" group="hodgepodgeForAndroid/lucidastarutils" />
+      <module fileurl="file://$PROJECT_DIR$/myvideo/myvideo.iml" filepath="$PROJECT_DIR$/myvideo/myvideo.iml" group="hodgepodgeForAndroid/myvideo" />
+      <module fileurl="file://$PROJECT_DIR$/testclient/testclient.iml" filepath="$PROJECT_DIR$/testclient/testclient.iml" group="hodgepodgeForAndroid/testclient" />
+      <module fileurl="file://$PROJECT_DIR$/testserver/testserver.iml" filepath="$PROJECT_DIR$/testserver/testserver.iml" group="hodgepodgeForAndroid/testserver" />
     </modules>
   </component>
 </project>

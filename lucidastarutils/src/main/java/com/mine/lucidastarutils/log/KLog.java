@@ -1,8 +1,9 @@
 package com.mine.lucidastarutils.log;
 
 
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
+import androidx.annotation.Nullable;
 
 import com.mine.lucidastarutils.log.klog.BaseLog;
 import com.mine.lucidastarutils.log.klog.FileLog;

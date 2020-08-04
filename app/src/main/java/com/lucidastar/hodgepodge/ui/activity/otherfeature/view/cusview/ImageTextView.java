@@ -8,13 +8,14 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
+
+import androidx.annotation.RequiresApi;
 
 public class ImageTextView extends View {
 

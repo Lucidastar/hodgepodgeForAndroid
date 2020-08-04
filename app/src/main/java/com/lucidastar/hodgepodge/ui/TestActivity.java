@@ -4,9 +4,6 @@ import android.annotation.TargetApi;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +17,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.lzyzsd.jsbridge.BridgeWebView;
 import com.github.lzyzsd.jsbridge.DefaultHandler;
@@ -61,23 +62,6 @@ public class TestActivity extends AppCompatActivity {
                 }
         );
 
-        /*mRecyclerView.setAdapter(new RecyclerView.Adapter() {
-            @Override
-            public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                return new TestItemHolder(LayoutInflater.from(TestActivity.this).
-                        inflate(R.layout.item_test, parent, false));
-            }
-
-            @Override
-            public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
-            }
-
-            @Override
-            public int getItemCount() {
-                return 5;
-            }
-        });*/
 
         mHeaderRecyclerAdapter.addDatas(Arrays.asList("sdf","sdf","sdfas","sdfa"));
         mHeaderRecyclerAdapter.setHeaderView(createHeaderView());

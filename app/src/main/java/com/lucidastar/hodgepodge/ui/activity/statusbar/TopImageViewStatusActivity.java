@@ -1,13 +1,13 @@
 package com.lucidastar.hodgepodge.ui.activity.statusbar;
 
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.util.statusbar.StatusBarCompat;
 import com.lucidastar.hodgepodge.R;

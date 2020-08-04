@@ -3,12 +3,13 @@ package com.lucidastar.hodgepodge.ui.activity.otherfeature.animation;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.lucidastar.hodgepodge.R;
 import com.lucidastar.hodgepodge.ui.activity.otherfeature.animation.other.BaseEasingMethod;

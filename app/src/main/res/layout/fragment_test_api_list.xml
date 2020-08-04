@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     tools:context="com.lucidastar.hodgepodge.ui.fragment.TestAPIFragment">
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
@@ -20,7 +20,7 @@
                 android:text="Matrix的学习"
                 />
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
 </FrameLayout>

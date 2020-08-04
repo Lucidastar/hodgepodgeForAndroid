@@ -2,7 +2,6 @@ package com.lucidastar.hodgepodge.ui.fragment;
 
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 
 import com.lucidastar.hodgepodge.R;
 import com.lucidastar.hodgepodge.ui.activity.demolist.picandcomment.PicAndCommentActivity;
@@ -10,9 +9,7 @@ import com.lucidastar.hodgepodge.ui.base.BaseFragment;
 
 import butterknife.OnClick;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class DemoListFragment extends BaseFragment {
 
     public DemoListFragment() {

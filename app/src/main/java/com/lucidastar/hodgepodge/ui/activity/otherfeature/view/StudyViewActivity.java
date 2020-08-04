@@ -2,11 +2,11 @@ package com.lucidastar.hodgepodge.ui.activity.otherfeature.view;
 
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.provider.CalendarContract;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.lucidastar.hodgepodge.R;
 import com.lucidastar.hodgepodge.ui.activity.otherfeature.view.cusview.RadarView;

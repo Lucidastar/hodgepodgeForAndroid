@@ -1,10 +1,11 @@
 package com.lucidastar.hodgepodge.ui.activity.layout.adapter;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.lucidastar.hodgepodge.ui.activity.layout.fragment.LifeFragment;
 import com.lucidastar.hodgepodge.ui.activity.layout.fragment.PhotoFragment;
@@ -28,7 +29,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int i) {
-        return LifeFragment.getInstance(mTitles.get(i));
+        return LifeFragment.getInstance(mTitles.get(i),i);
     }
 
     @Override

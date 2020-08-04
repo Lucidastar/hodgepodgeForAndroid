@@ -4,38 +4,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.annotation.StringRes;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
-import android.view.Gravity;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.lucidastar.hodgepodge.R;
-import com.lucidastar.hodgepodge.ui.fragment.DemoListFragment;
-import com.lucidastar.hodgepodge.ui.fragment.OtherFeatureFragment;
-import com.lucidastar.hodgepodge.ui.fragment.TestAPIFragment;
-import com.lucidastar.hodgepodge.ui.fragment.TestDaggerFragment;
-import com.lucidastar.hodgepodge.ui.fragment.TestIntentServiceFragment;
-import com.lucidastar.hodgepodge.ui.fragment.TestStatusBarFragment;
-import com.lucidastar.hodgepodge.ui.fragment.WidgetListFragment;
 import com.mine.lucidastarutils.log.KLog;
-import com.mine.lucidastarutils.utils.ToastUtils;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
-
-import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 

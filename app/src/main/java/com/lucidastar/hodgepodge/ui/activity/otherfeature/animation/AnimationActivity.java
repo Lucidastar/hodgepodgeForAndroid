@@ -4,15 +4,16 @@ import android.animation.Animator;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatSeekBar;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatSeekBar;
+import androidx.appcompat.widget.Toolbar;
 
 import com.lucidastar.hodgepodge.R;
 import com.mine.lucidastarutils.utils.FileUtils;

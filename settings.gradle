@@ -1,1 +1,1 @@
-include ':app', ':Library:StatusBarUtil', ':testserver', ':testclient', ':lucidastarutils', ':myvideo', ':PerformanceAnalysis'
+include ':app', ':Library:StatusBarUtil', ':testserver', ':testclient', ':lucidastarutils', ':myvideo'
