@@ -1,1 +1,2 @@
 include ':app', ':Library:StatusBarUtil', ':testserver', ':testclient', ':lucidastarutils', ':myvideo'
+include ':lib_common_ui'

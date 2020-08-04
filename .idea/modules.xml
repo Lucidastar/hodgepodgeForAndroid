@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/Library/StatusBarUtil/StatusBarUtil.iml" filepath="$PROJECT_DIR$/Library/StatusBarUtil/StatusBarUtil.iml" group="hodgepodgeForAndroid/Library/StatusBarUtil" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="hodgepodgeForAndroid/app" />
       <module fileurl="file://$PROJECT_DIR$/hodgepodgeForAndroid.iml" filepath="$PROJECT_DIR$/hodgepodgeForAndroid.iml" group="hodgepodgeForAndroid" />
+      <module fileurl="file://$PROJECT_DIR$/lib_common_ui/lib_common_ui.iml" filepath="$PROJECT_DIR$/lib_common_ui/lib_common_ui.iml" group="hodgepodgeForAndroid/lib_common_ui" />
       <module fileurl="file://$PROJECT_DIR$/lucidastarutils/lucidastarutils.iml" filepath="$PROJECT_DIR$/lucidastarutils/lucidastarutils.iml" group="hodgepodgeForAndroid/lucidastarutils" />
       <module fileurl="file://$PROJECT_DIR$/myvideo/myvideo.iml" filepath="$PROJECT_DIR$/myvideo/myvideo.iml" group="hodgepodgeForAndroid/myvideo" />
       <module fileurl="file://$PROJECT_DIR$/testclient/testclient.iml" filepath="$PROJECT_DIR$/testclient/testclient.iml" group="hodgepodgeForAndroid/testclient" />
