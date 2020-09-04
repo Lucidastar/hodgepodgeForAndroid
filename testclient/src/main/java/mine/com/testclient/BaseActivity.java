@@ -1,8 +1,10 @@
 package mine.com.testclient;
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.ViewGroup;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import mine.com.helper.ScaleScreenHelperFactory;
 import mine.com.helper.bound.BoundViewHelper;

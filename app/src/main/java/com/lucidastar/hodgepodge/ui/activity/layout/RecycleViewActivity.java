@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.animation.TranslateAnimation;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,15 +35,12 @@ public class RecycleViewActivity extends AppCompatActivity {
     }
 
     private void initListener() {
-        mUserInfoAdapter.setOnClickFabulousListener(new UserInfoAdapter.OnClickFabulousListener() {
-            @Override
-            public void clickFabulous(View view, int position) {
-                User user = mUserList.get(position);
-                changeUserInfo(position);
-                ToastUtils.showShortToast("位置：" + position);
-                KLog.i(user.toString());
+        mUserInfoAdapter.setOnClickFabulousListener((view, position) -> {
+            User user = mUserList.get(position);
+            changeUserInfo(position);
+            ToastUtils.showShortToast("位置：" + position);
+            KLog.i(user.toString());
 
-            }
         });
 
         mRcvUser.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -68,7 +66,6 @@ public class RecycleViewActivity extends AppCompatActivity {
         user.setFabulous(user.isFabulous() ? user.getFabulous() + 1 : user.getFabulous() - 1);
         mUserList.set(position, user);
         mUserInfoAdapter.notifyItemChanged(position);
-//        mUserInfoAdapter.notifyDataSetChanged();
 
 
     }
@@ -78,7 +75,7 @@ public class RecycleViewActivity extends AppCompatActivity {
         mRcvUser.setLayoutManager(manager);
         mUserList = new ArrayList<>();
         Random random = new Random();
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 2; i++) {
             User user = new User();
             user.setName("测试" + i);
             user.setAge(random.nextInt(80) + "岁");
@@ -94,27 +91,45 @@ public class RecycleViewActivity extends AppCompatActivity {
 
     private void initView() {
         mRcvUser = findViewById(R.id.rcv_user);
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        //设置title
+        mToolbar.setTitle("RecycleView的使用");
+        mToolbar.setSubtitleTextColor(getResources().getColor(R.color.white));
+        //这些简单的属性也可以在xml中进行设置
+        setSupportActionBar(mToolbar);
+        mToolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);//设置返回按钮
+        mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
+
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
     }
 
-    public void notifyItem(View view) {
+    public void notifyItemInsertedClick(View view) {
         //添加一条数据
-        User newUser = new User();
-        newUser.setName("newUser");
-        newUser.setAge("20岁");
-        newUser.setFabulous(12);
-        newUser.setFabulous(false);
-        newUser.setHead("https://mmbiz.qpic.cn/mmbiz_jpg/iccib9G9IAFPhSwdibNCmTBzKD57YoqXpT0HhDKLNX4dVHIo44H5IiaOOHxpQUw0c8Yn63vGNBxyJPfYsqpraxiaeyQ/0?wx_fmt=jpeg");
-        mUserList.add(0,newUser);
-//        mUserInfoAdapter.notifyItemInserted(0);
-        mUserInfoAdapter.notifyDataSetChanged();
+        mUserList.add(createUser());
+        mUserInfoAdapter.notifyItemInserted(mUserList.size());
+//        mUserInfoAdapter.notifyDataSetChanged();
         KLog.i("大小"+mUserList.size());
-
-
 
     }
 
     public void clearData(View view) {
         mUserList.clear();
         mUserInfoAdapter.notifyDataSetChanged();
+    }
+
+    private User createUser(){
+        User user = new User();
+        user.setName("新的测试"+mUserList.size());
+        user.setAge("12");
+        user.setFabulous(1);
+        user.setFabulous(false);
+        user.setHead("https://mmbiz.qpic.cn/mmbiz_jpg/iccib9G9IAFPhSwdibNCmTBzKD57YoqXpT0HhDKLNX4dVHIo44H5IiaOOHxpQUw0c8Yn63vGNBxyJPfYsqpraxiaeyQ/0?wx_fmt=jpeg");
+        return user;
     }
 }

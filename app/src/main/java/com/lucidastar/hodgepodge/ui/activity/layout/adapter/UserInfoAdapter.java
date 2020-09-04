@@ -68,13 +68,13 @@ public class UserInfoAdapter extends RecyclerView.Adapter<UserInfoAdapter.MyUser
         return mUsers.size();
     }
 
-    public class MyUserViewHolder extends RecyclerView.ViewHolder{
-        public TextView mTvUserName;
-        public TextView mTvUserAge;
-        public TextView mTvFabulousNum;
-        public ImageView mIvFabulous;
-        public ImageView mIvHead;
-        public MyUserViewHolder(View itemView) {
+    static class MyUserViewHolder extends RecyclerView.ViewHolder{
+        TextView mTvUserName;
+        TextView mTvUserAge;
+        TextView mTvFabulousNum;
+        ImageView mIvFabulous;
+        ImageView mIvHead;
+        MyUserViewHolder(View itemView) {
             super(itemView);
             mTvUserName = itemView.findViewById(R.id.tv_name);
             mTvUserAge = itemView.findViewById(R.id.tv_age);
