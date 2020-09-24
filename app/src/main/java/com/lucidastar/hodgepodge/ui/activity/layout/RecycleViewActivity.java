@@ -3,15 +3,20 @@ package com.lucidastar.hodgepodge.ui.activity.layout;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.TranslateAnimation;
+import android.widget.ScrollView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.lucidastar.hodgepodge.R;
 import com.lucidastar.hodgepodge.ui.activity.layout.adapter.UserInfoAdapter;
 import com.lucidastar.hodgepodge.ui.activity.layout.model.User;
+import com.lucidastar.hodgepodge.ui.activity.layout.utils.LinearLayoutDividerItemDecoration;
+import com.lucidastar.hodgepodge.ui.activity.layout.utils.StaggeredDividerItemDecoration;
 import com.mine.lucidastarutils.log.KLog;
 import com.mine.lucidastarutils.utils.ToastUtils;
 
@@ -72,10 +77,14 @@ public class RecycleViewActivity extends AppCompatActivity {
 
     private void initData() {
          manager = new LinearLayoutManager(this);
+//         manager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+//         mRcvUser.addItemDecoration(new StaggeredDividerItemDecoration(this,2));
+         mRcvUser.addItemDecoration(new LinearLayoutDividerItemDecoration());
+
         mRcvUser.setLayoutManager(manager);
         mUserList = new ArrayList<>();
         Random random = new Random();
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 20; i++) {
             User user = new User();
             user.setName("测试" + i);
             user.setAge(random.nextInt(80) + "岁");
@@ -100,12 +109,7 @@ public class RecycleViewActivity extends AppCompatActivity {
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);//设置返回按钮
         mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
 
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        mToolbar.setNavigationOnClickListener(view -> finish());
 
     }
 

@@ -38,21 +38,35 @@ public class TestBitmapActivity extends AppCompatActivity {
     EditText mImageWidth;
     @BindView(R.id.imageHeight)
     EditText mImageHeight;
+    @BindView((R.id.tv_phone_info))
+    TextView mTvPhoneInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_bitmap);
         ButterKnife.bind(this);
-
+        initData();
     }
+
+    private void initData() {
+        mTvPhoneInfo.setText("像素密度："+getDensityDpi());
+    }
+
+
 
 
     //获取占用内存大小
     public final int getByteCount(Bitmap bitmap) {
         // int result permits bitmaps up to 46,340 x 46,340
+        KLog.d("getByteCount:"+bitmap.getByteCount());
         return bitmap.getRowBytes() * bitmap.getHeight();
     }
+
+    private final float getDensityDpi(){
+        return getResources().getDisplayMetrics().densityDpi;
+    }
+
 
     @OnClick({R.id.btn_getBitmapSize, R.id.btn_imageSize, R.id.btn_getScreenInfo, R.id.btn_getCustomImage})
     public void onClick(View view) {
@@ -77,7 +91,7 @@ public class TestBitmapActivity extends AppCompatActivity {
                 getWindowManager().getDefaultDisplay().getMetrics(dm);
                 float width = dm.widthPixels * dm.density;
                 float height = dm.heightPixels * dm.density;
-                mTvSize.setText("屏幕的宽：" + dm.widthPixels + "\n屏幕的高：" + dm.heightPixels + "\n" + "密度：" + dm.density + "\n" + "密度dpi（代表每寸多少个像素点）:" + dm.densityDpi + "\n" + "xdpi:" + dm.xdpi + ",ydpi:" + dm.ydpi + "\n分辨率：" + width + "*" + height);
+                mTvSize.setText("屏幕的宽：" + dm.widthPixels + "\n屏幕的高：" + dm.heightPixels + "\n" + "密度(每平方英寸中的像素数)：" + dm.density + "\n" + "密度dpi（代表每寸多少个像素点）:" + dm.densityDpi + "\n" + "xdpi:" + dm.xdpi + ",ydpi:" + dm.ydpi + "\n分辨率：" + width + "*" + height);
 
                 break;
 

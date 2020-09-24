@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hodgepodge</string>
+    <string name="app_name">知识点</string>
 
     <!--menu-->
     <string name="TestIntentService">测试IntentService</string>
